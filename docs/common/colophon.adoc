@@ -3,17 +3,17 @@
 ifdef::backend-html5[]
 ifeval::["{factory}" == "IsyFact-Standards"]
 [.left]
-image::../../../../common/images/IFS-Logo.png[width=150]
+image::{isy-dokumentvorlagen}/docs/common/images/IFS-Logo.png[width=150]
 
 endif::[]
 ifeval::["{factory}" == "IsyFact-Erweiterungen"]
 [.left]
-image::../../../../common/images/IFE-Logo.jpg[width=150]
+image::{isy-dokumentvorlagen}/docs/common/images/IFE-Logo.jpg[width=150]
 
 endif::[]
 ifeval::["{factory}" == "Register Factory"]
 [.left]
-image::../../../../common/images/RF-Logo.jpg[width=200]
+image::{isy-dokumentvorlagen}/docs/common/images/RF-Logo.jpg[width=200]
 
 endif::[]
 endif::[]
@@ -23,7 +23,7 @@ Alle urheberrechtlichen Nutzungs- und Verwertungsrechte liegen beim Bundesverwal
 
 ifdef::license-oss[]
 [.right]
-image::../../../../common/images/CC-BY.png[ccby,width=100]
+image::{isy-dokumentvorlagen}/docs/common/images/CC-BY.png[ccby,width=100]
 
 Die Nutzung ist unter den Lizenzbedingungen der https://creativecommons.org/licenses/by/4.0/deed.de[Creative Commons Namensnennung 4.0 International] gestattet. +
 Die Lizenzbestimmungen sind unter folgender URL erhältlich: +
