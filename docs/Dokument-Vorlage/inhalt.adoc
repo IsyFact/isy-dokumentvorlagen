@@ -1,31 +1,11 @@
-= INHALT 1
+= Titel des Dokuments: Inhalt
+include::{isy-dokumentvorlagen}/docs/common/isyfact-attributes.adoc[]
 
-Text 1
+// tag::inhalt[]
 
-== INHALT 1.1
+== Kapitel
 
-Text 1.1
+Inhalt
 
-=== INHALT 1.1.1
 
-Text 1.1.1
-
-==== INHALT 1.1.1.1
-
-Text 1.1.1.1
-
-==== INHALT 1.1.1.2
-
-Text 1.1.1.2	
-
-=== INHALT 1.1.2
-
-Text 1.1.2
-
-== INHALT 1.2
-
-Text 1.2
-
-= INHALT 2
-
-Text 2
+// end::inhalt[]
