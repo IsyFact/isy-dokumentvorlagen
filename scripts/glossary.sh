@@ -12,45 +12,159 @@ IFS=$'\n'
 
 # (1)
 readGlossaryTerms() {
-    gawk 'match($0, /\[id="(.+)",.+\]/, m) { print m[1] }' common/glossary.adoc
+    gawk 'match($0, /\[id="(.+)",.+\]/, m) { print m[1] }' common/glossary.adoc | grep 'glossar-' | grep -v 'image-glossar-'
 }
 
 # suche in jeder Zeile nach spitzen Klammern (und glossar) und spitze klammer zu. Schreibe sie raus. Schmeiss doppelte weg.
 
-# (3)
+# (3a)
 findTerms() {
+
+    if [ -f $dir/grabbedTerms.txt ];
+    then
+      rm $dir/grabbedTerms.txt
+    fi
+    touch $dir/grabbedTerms.txt
+    cat $dir/docinfo.adoc $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc > $dir/TermSrc-temp.adoc
     for term in $@
     do
-        cat $dir/docinfo.adoc $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc | gawk -v foundref=$term 'match($0, /<<(.+)>>/, m) && m[1] == foundref { print m[1]; }' | sort -u
+        cat $dir/TermSrc-temp.adoc | gawk '{while(match($0,/<<([^<>]+)>>/)) {print substr($0,RSTART+2,RLENGTH-4); $0=substr($0,RSTART+RLENGTH)}}' | grep $term  | grep -v 'image-glossar-' | sort -u >> $dir/grabbedTerms.txt
+        # cat $dir/docinfo.adoc $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc | gawk -v foundref=$term 'match($0, /<<([^<>]+)>>/, m) && m[1] == foundref { print m[1]; }' | grep 'glossar-' | grep -v 'image-glossar-' | sort -u
     done
+
+    touch $dir/grabbedTerms-temp.txt
+    cat $dir/grabbedTerms.txt | sort -u > $dir/grabbedTerms-temp.txt
+    cat $dir/grabbedTerms-temp.txt > $dir/grabbedTerms.txt
+
+    cat $dir/grabbedTerms.txt
+
+    if [ -f $dir/grabbedTerms-temp.txt ];
+    then
+      rm $dir/grabbedTerms-temp.txt
+    fi
+    if [ -f $dir/grabbedTerms.txt ];
+    then
+      rm $dir/grabbedTerms.txt
+    fi
+    rm $dir/TermSrc-temp.adoc
+}
+
+# (3b)
+findTermswithGlos() {
+
+    if [ -f $dir/grabbedTerms.txt ];
+    then
+      rm $dir/grabbedTerms.txt
+    fi
+    touch $dir/grabbedTerms.txt
+    cat $dir/docinfo.adoc $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc $dir/anhaenge.adoc $dir/glossary.adoc > $dir/TermSrc-temp.adoc
+
+
+    for term in $@
+    do
+        cat $dir/TermSrc-temp.adoc | gawk '{while(match($0,/<<([^<>]+)>>/)) {print substr($0,RSTART+2,RLENGTH-4); $0=substr($0,RSTART+RLENGTH)}}' | grep $term  | grep -v 'image-glossar-' | sort -u >> $dir/grabbedTerms.txt
+        #cat $dir/docinfo.adoc $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc $dir/glossary.adoc | gawk -v foundref=$term 'match($0, /<<([^<>]+)>>/, m) && m[1] == foundref { print m[1]; }' | grep 'glossar-' | grep -v 'image-glossar-' | sort -u >> $dir/grabbedTerms.txt
+    done
+
+    touch $dir/grabbedTerms-temp.txt
+    cat $dir/grabbedTerms.txt | sort -u > $dir/grabbedTerms-temp.txt
+    cat $dir/grabbedTerms-temp.txt > $dir/grabbedTerms.txt
+
+    cat $dir/grabbedTerms.txt
+
+    if [ -f $dir/grabbedTerms-temp.txt ];
+    then
+      rm $dir/grabbedTerms-temp.txt
+    fi
+    if [ -f $dir/grabbedTerms.txt ];
+    then
+      rm $dir/grabbedTerms.txt
+    fi
+
+    rm $dir/TermSrc-temp.adoc
 }
 
 # (4)
 buildDocumentGlossary() {
+
+    cat common/glossary.adoc | sed '$!N;s/\[id="glossar-/\n\[id="glossar-/g' > common/glossary-temp.adoc
+
     terms=($@)
     termsSize=${#terms[@]}
 
     if [ $termsSize -gt 0 ]
     then
-        echo -e "[glossary]\n== Glossar" > $dir/glossary.adoc
+        echo -e "\n\n[glossary]\n== Glossar\n" > $dir/glossary.adoc
+        ###
+        echo -e "\n\n:imagesdir: "`pwd`/10_IsyFact-Standards/00_Allgemein/IsyFact-Glossar/images"\n" >> $dir/glossary.adoc
 
+        term="glossar-Abbildungsbeschreibungen"
+        searchterm="id=\"$term\""
+        gawk -v foundterm=$term -v searchterm=$searchterm 'BEGIN {RS="\n\n\n";FS=""} match($0, /\[id="(.+)",.+\]/, m)  { if ( index($0,searchterm) >0 ) { print $0 } }' common/glossary-temp.adoc | grep -v "$searchterm" >> $dir/glossary.adoc
+        echo -e "\n\n" >> $dir/glossary.adoc
+        unset term
+        unset searchterm
         for term in $@
         do
-          gawk -v foundterm=$term 'match($1, /\[id="(.+)",.+\]/, m) && m[1] == foundterm { print $0 }' RS='' FS='\n' common/glossary.adoc | tee -a $dir/glossary.adoc
+            searchterm="id=\"$term\""
+            gawk -v foundterm=$term -v searchterm=$searchterm 'BEGIN {RS="\n\n\n";FS=""} match($0, /\[id="(.+)",.+\]/, m)  { if ( index($0,searchterm) >0 ) { print $0 } }' common/glossary-temp.adoc >> $dir/glossary.adoc
+            echo -e "\n\n" >> $dir/glossary.adoc
+            unset searchterm
         done
+
+        ###
+        echo -e "\n\n:imagesdir: images\n" >> $dir/glossary.adoc
+        echo -e "\n\n" >> $dir/glossary.adoc
     else
-        touch $dir/glossary.adoc
+           touch $dir/glossary.adoc
     fi
+
+    #read -p "Tests"
+
+    rm common/glossary-temp.adoc
 }
 
 # (1)
 allGlossaryTerms=$(readGlossaryTerms)
 
-allDocDirectories=($(find $1 -name master.adoc | xargs dirname))
+#for irgt in ${allGlossaryTerms[@]}; do
+#  echo " RGT : " $irgt
+#done
+
+allDocDirectories=($(find {1,2}0_* -name master.adoc | xargs dirname))
 
 # (2)
 for dir in ${allDocDirectories[@]}
 do
+    echo " Ziel " $dir
+    unset foundTerms
     foundTerms=$(findTerms ${allGlossaryTerms[@]})
+    #for igt in ${foundTerms[@]}; do
+    #  echo " Verweis initial : " $igt
+    #done
     buildDocumentGlossary ${foundTerms[@]}
+    Counter=0
+    # maximale Tiefe für verschachtelte Verweise ist 9
+    CounterMax=10
+    ActTerms=($foundTerms)
+    OldLength=${#ActTerms[@]}
+    while [ $Counter -lt $CounterMax ]; do
+      unset foundTerms
+      foundTerms=$(findTermswithGlos ${allGlossaryTerms[@]})
+      buildDocumentGlossary ${foundTerms[@]}
+      ActTerms=($foundTerms)
+      NewLength=${#ActTerms[@]}
+      echo "alt>"  $OldLength " neu> " $NewLength " ( Lauf: " $Counter ")"
+      #for ifrt in ${ActTerms[@]}; do
+      #  echo " Verweis         : " $ifrt
+      #done
+
+      if [ $OldLength -eq $NewLength ]
+      then
+        Counter=$CounterMax
+      else
+        OldLength=$NewLength
+      fi
+      let Counter=Counter+1
+    done
 done
