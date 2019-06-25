@@ -24,13 +24,13 @@ buildListOfTables() {
 
 # (3)
 buildListOfFigures() {
-    cat $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc | egrep -q '\[id="(image-.+)",'
+    cat $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc $dir/glossary.adoc | egrep -q '\[id="(image-.+)",'
 
     if [ $? -eq 0 ]
     then
         echo -e "\n== Abbildungsverzeichnis\n" > $dir/listoffigures.adoc
 
-        cat $dir/docinfo.adoc $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc | gawk 'match($0, /\[id="(image-.+)",/, m) { print "<<" m[1] ">>" " {desc-" m[1] "}\n" }' | tee -a $dir/listoffigures.adoc
+        cat $dir/docinfo.adoc $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc $dir/glossary.adoc | gawk 'match($0, /\[id="(image-.+)",/, m) { print "<<" m[1] ">>" " {desc-" m[1] "}\n" }' | tee -a $dir/listoffigures.adoc
     else
         touch $dir/listoffigures.adoc
     fi
@@ -51,7 +51,7 @@ buildListOfListings() {
 }
 
 
-allDocDirectories=($(find $1 -name master.adoc | xargs dirname))
+allDocDirectories=($(find {1,2}0_* -name master.adoc | xargs dirname))
 
 # (1)
 for dir in ${allDocDirectories[@]}
