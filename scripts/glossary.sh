@@ -10,12 +10,12 @@
 
 IFS=$'\n'
 
-# (1)
+# (1) suche die zu referenzierenden Glossar-Begriffe aus dem der Master-Glossar-Datei in isy-dokumentatvorlage
 readGlossaryTerms() {
-    gawk 'match($0, /\[id="(.+)",.+\]/, m) { print m[1] }' common/glossary.adoc | grep 'glossar-' | grep -v 'image-glossar-'
+    gawk 'match($0, /\[id="(.+)",.+\]/, m) { print m[1] }' $curDir/common/glossary.adoc | grep 'glossar-' | grep -v 'image-glossar-' | grep -v 'glossar-YYY-ZZZ'
 }
 
-# suche in jeder Zeile nach spitzen Klammern (und glossar) und spitze klammer zu. Schreibe sie raus. Schmeiss doppelte weg.
+# suche in jeder Zeile nach spitzen Klammern (und glossar) und spitze Klammer zu. Schreibe sie raus. Verwerfe Doppelte.
 
 # (3a)
 findTerms() {
@@ -87,7 +87,10 @@ findTermswithGlos() {
 # (4)
 buildDocumentGlossary() {
 
-    cat common/glossary.adoc | sed '$!N;s/\[id="glossar-/\n\[id="glossar-/g' > common/glossary-temp.adoc
+    glossfil=$curDir/common/glossary.adoc
+    glossfileTmp=$curDir/common/glossary-temp.adoc
+
+    cat $glossfil | sed '$!N;s/\[id="glossar-/\n\[id="glossar-/g' > $glossfileTmp
 
     terms=($@)
     termsSize=${#terms[@]}
@@ -95,43 +98,58 @@ buildDocumentGlossary() {
     if [ $termsSize -gt 0 ]
     then
         echo -e "\n\n[glossary]\n== Glossar\n" > $dir/glossary.adoc
-        ###
-        echo -e "\n\n:imagesdir: "`pwd`/10_IsyFact-Standards/00_Allgemein/IsyFact-Glossar/images"\n" >> $dir/glossary.adoc
+
+        echo -e "\n\n:imagesdir: "$ArgOneDir/10_IsyFact-Standards/00_Allgemein/IsyFact-Glossar/images"\n" >> $dir/glossary.adoc
 
         term="glossar-Abbildungsbeschreibungen"
         searchterm="id=\"$term\""
-        gawk -v foundterm=$term -v searchterm=$searchterm 'BEGIN {RS="\n\n\n";FS=""} match($0, /\[id="(.+)",.+\]/, m)  { if ( index($0,searchterm) >0 ) { print $0 } }' common/glossary-temp.adoc | grep -v "$searchterm" >> $dir/glossary.adoc
+        gawk -v foundterm=$term -v searchterm=$searchterm 'BEGIN {RS="\n\n\n";FS=""} match($0, /\[id="(.+)",.+\]/, m)  { if ( index($0,searchterm) >0 ) { print $0 } }' $glossfileTmp | grep -v "$searchterm" >> $dir/glossary.adoc
         echo -e "\n\n" >> $dir/glossary.adoc
         unset term
         unset searchterm
         for term in $@
         do
             searchterm="id=\"$term\""
-            gawk -v foundterm=$term -v searchterm=$searchterm 'BEGIN {RS="\n\n\n";FS=""} match($0, /\[id="(.+)",.+\]/, m)  { if ( index($0,searchterm) >0 ) { print $0 } }' common/glossary-temp.adoc >> $dir/glossary.adoc
+            gawk -v foundterm=$term -v searchterm=$searchterm 'BEGIN {RS="\n\n\n";FS=""} match($0, /\[id="(.+)",.+\]/, m)  { if ( index($0,searchterm) >0 ) { print $0 } }' $glossfileTmp >> $dir/glossary.adoc
             echo -e "\n\n" >> $dir/glossary.adoc
             unset searchterm
         done
 
-        ###
         echo -e "\n\n:imagesdir: images\n" >> $dir/glossary.adoc
         echo -e "\n\n" >> $dir/glossary.adoc
     else
            touch $dir/glossary.adoc
     fi
 
-    #read -p "Tests"
+    rm $glossfileTmp
+    unset glossfil
+    unset glossfilTmp
+}
 
-    rm common/glossary-temp.adoc
+allDocDirCmd() {
+    find $ArgOneDir/10_* $ArgOneDir/20_* -name master.adoc | xargs dirname
 }
 
 # (1)
+
+curDir=$(pwd)
+echo "DEBUG: started in " $curDir
+
 allGlossaryTerms=$(readGlossaryTerms)
 
-#for irgt in ${allGlossaryTerms[@]}; do
-#  echo " RGT : " $irgt
-#done
+for irgt in ${allGlossaryTerms[@]}; do
+  echo " RGT : " $irgt
+done
 
-allDocDirectories=($(find {1,2}0_* -name master.adoc | xargs dirname))
+# wechsele in das übergebene Verzeichnis
+cd $1
+ArgOneDir=$(pwd)
+
+echo "DEBUG: got ArgOne " $ArgOneDir
+
+allDocDirectories=($(eval "allDocDirCmd"))
+
+cd $curDir
 
 # (2)
 for dir in ${allDocDirectories[@]}

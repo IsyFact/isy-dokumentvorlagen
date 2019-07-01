@@ -50,8 +50,14 @@ buildListOfListings() {
       fi
 }
 
+allDocDirCmd() {
+    find 10_* 20_* -name master.adoc | xargs dirname
+}
 
-allDocDirectories=($(find {1,2}0_* -name master.adoc | xargs dirname))
+curDir=$(pwd)
+cd $1
+allDocDirectories=($(eval "allDocDirCmd"))
+cd $curDir
 
 # (1)
 for dir in ${allDocDirectories[@]}
