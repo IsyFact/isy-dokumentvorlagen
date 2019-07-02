@@ -9,7 +9,15 @@
 #   bibliography.adoc des Dokuments (4)
 
 # (1)
-allBibRefs=($(gawk 'match($0, /\[\[\[(.+)\]\]\]/, m) { print m[1]}' common/bibliography.adoc))
+#allBibRefs=($(gawk 'match($0, /\[\[\[(.+)\]\]\]/, m) { print m[1]}' $curDir/common/bibliography.adoc))
+
+allBibRefs() {
+    gawk 'match($0, /\[\[\[(.+)\]\]\]/, m) { print m[1]}' $curDir/common/bibliography.adoc
+}
+
+#readGlossaryTerms() {
+#    gawk 'match($0, /\[id="(.+)",.+\]/, m) { print m[1] }' $curDir/common/glossary.adoc | grep 'glossar-' | grep -v 'image-glossar-' | grep -v 'glossar-YYY-ZZZ'
+#}
 
 # (3)
 findRefs() {
@@ -30,7 +38,7 @@ buildDocumentBibliography() {
 
         for ref in $@
         do
-          gawk -v foundref=$ref 'match($1, /\[\[\[(.+)\]\]\]/, m) && m[1] == foundref { print $0 }' RS='' FS='\n' common/bibliography.adoc | tee -a $dir/bibliography.adoc
+          gawk -v foundref=$ref 'match($1, /\[\[\[(.+)\]\]\]/, m) && m[1] == foundref { print $0 }' RS='' FS='\n' $curDir/common/bibliography.adoc | tee -a $dir/bibliography.adoc
         done
     else
         touch $dir/bibliography.adoc
@@ -38,17 +46,29 @@ buildDocumentBibliography() {
 }
 
 allDocDirCmd() {
-    find 10_* 20_* -name master.adoc | xargs dirname
+    find $ArgOneDir/10_* $ArgOneDir/20_* -name master.adoc | xargs dirname
 }
 
+# (1)
+
 curDir=$(pwd)
+#echo "DEBUG: started in " $curDir
+
+# wechsele in das übergebene Verzeichnis
 cd $1
+ArgOneDir=$(pwd)
+
+#echo "DEBUG: got ArgOne " $ArgOneDir
+
 allDocDirectories=($(eval "allDocDirCmd"))
+
+# wechsele in das übergebene Arbeitsverzeichnis
 cd $curDir
 
 # (2)
 for dir in ${allDocDirectories[@]}
 do
+    # echo " Ziel: " $dir
     bibRefs=$(findRefs ${allBibRefs[@]})
     buildDocumentBibliography ${bibRefs[@]}
 done

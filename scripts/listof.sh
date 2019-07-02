@@ -51,12 +51,21 @@ buildListOfListings() {
 }
 
 allDocDirCmd() {
-    find 10_* 20_* -name master.adoc | xargs dirname
+    find $ArgOneDir/10_* $ArgOneDir/20_* -name master.adoc | xargs dirname
 }
 
 curDir=$(pwd)
+#echo "DEBUG: started in " $curDir
+
+# wechsele in das übergebene Verzeichnis
 cd $1
+ArgOneDir=$(pwd)
+
+#echo "DEBUG: got ArgOne " $ArgOneDir
+
 allDocDirectories=($(eval "allDocDirCmd"))
+
+# wechsele in das übergebene Arbeitsverzeichnis
 cd $curDir
 
 # (1)

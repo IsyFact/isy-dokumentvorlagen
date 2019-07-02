@@ -133,22 +133,23 @@ allDocDirCmd() {
 # (1)
 
 curDir=$(pwd)
-echo "DEBUG: started in " $curDir
+#echo "DEBUG: started in " $curDir
 
 allGlossaryTerms=$(readGlossaryTerms)
 
-for irgt in ${allGlossaryTerms[@]}; do
-  echo " RGT : " $irgt
-done
+#for irgt in ${allGlossaryTerms[@]}; do
+#  echo " RGT : " $irgt
+#done
 
 # wechsele in das übergebene Verzeichnis
 cd $1
 ArgOneDir=$(pwd)
 
-echo "DEBUG: got ArgOne " $ArgOneDir
+# echo "DEBUG: got ArgOne " $ArgOneDir
 
 allDocDirectories=($(eval "allDocDirCmd"))
 
+# wechsele in das übergebene Arbeitsverzeichnis
 cd $curDir
 
 # (2)
