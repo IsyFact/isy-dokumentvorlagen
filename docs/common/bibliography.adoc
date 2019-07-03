@@ -138,6 +138,10 @@
   Konzept Überwachung und Konfiguration +
   20_Bausteine/Ueberwachung_Konfiguration/Konzept_Ueberwachung_Konfiguration.pdf
 
+- [[[NutzungsvorgabenKonfiguration]]] +
+  Konzept Überwachung und Konfiguration +
+  20_Bausteine/Ueberwachung_Konfiguration/Nutzungsvorgaben_Ueberwachung_Konfiguration.pdf
+
 - [[[NutzungsvorgabenIsyUtil]]] +
   Nutzungskonzept Isy-Util +
   20_Bausteine/Util/Nutzungsvorgaben_Isy_Util.pdf
