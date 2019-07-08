@@ -11,7 +11,7 @@
 # (1)
 #allBibRefs=($(gawk 'match($0, /\[\[\[(.+)\]\]\]/, m) { print m[1]}' $curDir/common/bibliography.adoc))
 allBibRefs() {
-    gawk 'match($0, /\[\[\[(.+)\]\]\]/, m) { print m[1]}' $curDir/common/bibliography.adoc
+    gawk 'match($0, /\[\[\[(.+)\]\]\]/, m) { print m[1]}' $curDir/common/bibliography.adoc | sort -u
 }
 
 # (3)
@@ -31,7 +31,6 @@ findRefs() {
 
     touch $dir/grabbedRefs-temp.txt
     cat $dir/grabbedRefs.txt | sort -u > $dir/grabbedRefs-temp.txt
-    cat $dir/grabbedRefs.txt
     cat $dir/grabbedRefs-temp.txt > $dir/grabbedRefs.txt
 
     cat $dir/grabbedRefs.txt
@@ -93,13 +92,13 @@ cd $curDir
 allBibEntries=($(eval "allBibRefs"))
 
 for igt in ${allBibEntries[@]}; do
-  echo " BibEntrie : " $igt
+  echo " BibEntries : " $igt
 done
 
 for dir in ${allDocDirectories[@]}
 do
     echo " Ziel: " $dir
-    bibRefs=$(findRefs "${allBibEntries[@]}")
+    bibRefs=($(findRefs "${allBibEntries[@]}"))
     #for igt22 in ${bibRefs[@]}; do
     #  echo " BibRef : " $igt22
     #done

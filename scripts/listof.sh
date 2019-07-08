@@ -58,13 +58,13 @@ allDocDirCmd() {
 echo "Generating document dependent lists of tables, figures and listings...."
 
 curDir=$(pwd)
-#echo "DEBUG: started in " $curDir
+# echo "DEBUG: started in " $curDir
 
 # wechsele in das übergebene Verzeichnis
 cd $1
 ArgOneDir=$(pwd)
 
-#echo "DEBUG: got ArgOne " $ArgOneDir
+# echo "DEBUG: got ArgOne " $ArgOneDir
 
 allDocDirectories=($(eval "allDocDirCmd"))
 
