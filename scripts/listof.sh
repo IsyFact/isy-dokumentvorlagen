@@ -54,6 +54,9 @@ allDocDirCmd() {
     find $ArgOneDir/10_* $ArgOneDir/20_* -name master.adoc | xargs dirname
 }
 
+# (1)
+echo "Generating document dependent lists of tables, figures and listings...."
+
 curDir=$(pwd)
 #echo "DEBUG: started in " $curDir
 
@@ -68,7 +71,7 @@ allDocDirectories=($(eval "allDocDirCmd"))
 # wechsele in das übergebene Arbeitsverzeichnis
 cd $curDir
 
-# (1)
+
 for dir in ${allDocDirectories[@]}
 do
     buildListOfTables

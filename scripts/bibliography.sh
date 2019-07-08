@@ -10,21 +10,42 @@
 
 # (1)
 #allBibRefs=($(gawk 'match($0, /\[\[\[(.+)\]\]\]/, m) { print m[1]}' $curDir/common/bibliography.adoc))
-
 allBibRefs() {
     gawk 'match($0, /\[\[\[(.+)\]\]\]/, m) { print m[1]}' $curDir/common/bibliography.adoc
 }
 
-#readGlossaryTerms() {
-#    gawk 'match($0, /\[id="(.+)",.+\]/, m) { print m[1] }' $curDir/common/glossary.adoc | grep 'glossar-' | grep -v 'image-glossar-' | grep -v 'glossar-YYY-ZZZ'
-#}
-
 # (3)
 findRefs() {
-    for ref in $@
+
+    if [ -f $dir/grabbedRefs.txt ];
+    then
+      rm $dir/grabbedRefs.txt
+    fi
+    touch $dir/grabbedRefs.txt
+    cat $dir/docinfo.adoc $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc > $dir/RefSrc-temp.adoc
+
+    for Ref2 in $@
     do
-        cat $dir/docinfo.adoc $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc $dir/glossary.adoc | gawk -v foundref=$ref 'match($0, /<<([a-zA-Z0-9]+)>>/, m) && m[1] == foundref { print m[1]; }' RS=" " | sort -u
+        cat $dir/RefSrc-temp.adoc | gawk '{while(match($0,/<<([^<>]+)>>/)) {print substr($0,RSTART+2,RLENGTH-4); $0=substr($0,RSTART+RLENGTH)}}' | grep $Ref2 | sort -u >> $dir/grabbedRefs.txt
     done
+
+    touch $dir/grabbedRefs-temp.txt
+    cat $dir/grabbedRefs.txt | sort -u > $dir/grabbedRefs-temp.txt
+    cat $dir/grabbedRefs.txt
+    cat $dir/grabbedRefs-temp.txt > $dir/grabbedRefs.txt
+
+    cat $dir/grabbedRefs.txt
+
+    if [ -f $dir/grabbedRefs-temp.txt ];
+    then
+      rm $dir/grabbedRefs-temp.txt
+    fi
+
+    if [ -f $dir/grabbedRefs.txt ];
+    then
+      rm $dir/grabbedRefs.txt
+    fi
+    rm $dir/RefSrc-temp.adoc
 }
 
 # (4)
@@ -51,6 +72,8 @@ allDocDirCmd() {
 
 # (1)
 
+echo "Generating document dependent bibliographies...."
+
 curDir=$(pwd)
 #echo "DEBUG: started in " $curDir
 
@@ -66,9 +89,19 @@ allDocDirectories=($(eval "allDocDirCmd"))
 cd $curDir
 
 # (2)
+
+allBibEntries=($(eval "allBibRefs"))
+
+for igt in ${allBibEntries[@]}; do
+  echo " BibEntrie : " $igt
+done
+
 for dir in ${allDocDirectories[@]}
 do
-    # echo " Ziel: " $dir
-    bibRefs=$(findRefs ${allBibRefs[@]})
-    buildDocumentBibliography ${bibRefs[@]}
+    echo " Ziel: " $dir
+    bibRefs=$(findRefs "${allBibEntries[@]}")
+    #for igt22 in ${bibRefs[@]}; do
+    #  echo " BibRef : " $igt22
+    #done
+    buildDocumentBibliography "${bibRefs[@]}"
 done

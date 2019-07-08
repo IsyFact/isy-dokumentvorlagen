@@ -63,7 +63,6 @@ findTermswithGlos() {
     for term in $@
     do
         cat $dir/TermSrc-temp.adoc | gawk '{while(match($0,/<<([^<>]+)>>/)) {print substr($0,RSTART+2,RLENGTH-4); $0=substr($0,RSTART+RLENGTH)}}' | grep $term  | grep -v 'image-glossar-' | sort -u >> $dir/grabbedTerms.txt
-        #cat $dir/docinfo.adoc $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc $dir/glossary.adoc | gawk -v foundref=$term 'match($0, /<<([^<>]+)>>/, m) && m[1] == foundref { print m[1]; }' | grep 'glossar-' | grep -v 'image-glossar-' | sort -u >> $dir/grabbedTerms.txt
     done
 
     touch $dir/grabbedTerms-temp.txt
@@ -132,6 +131,8 @@ allDocDirCmd() {
 
 # (1)
 
+echo "Generating document dependent glossaries...."
+
 curDir=$(pwd)
 #echo "DEBUG: started in " $curDir
 
@@ -173,7 +174,9 @@ do
       buildDocumentGlossary ${foundTerms[@]}
       ActTerms=($foundTerms)
       NewLength=${#ActTerms[@]}
-      echo "alt>"  $OldLength " neu> " $NewLength " ( Lauf: " $Counter ")"
+
+      echo -e $Counter
+      #echo "alt>"  $OldLength " neu> " $NewLength " ( Lauf: " $Counter ")"
       #for ifrt in ${ActTerms[@]}; do
       #  echo " Verweis         : " $ifrt
       #done
