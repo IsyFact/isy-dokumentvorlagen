@@ -5,7 +5,7 @@
 # Funktionsweise:
 # - common/glossary.adoc enthält alle Glossarbegriffe in der Form [id="GlossarBegriff", ... ]. Baue eine Liste aller Begriffe (1)
 # - Suche in adoc-Dateien aller Dokumente (2) nach Referenzen der Form <<GlossarBegriff>> (3)
-# - Extrahiere für jeden gefundenen Begriff den Eintrag aus glossary.adoc und übernehme in indiviuelle
+# - Extrahiere für jeden gefundenen Begriff den Eintrag aus glossary.adoc und übernehme in individuelle
 #   glossary.adoc des Dokuments (4)
 
 IFS=$'\n'

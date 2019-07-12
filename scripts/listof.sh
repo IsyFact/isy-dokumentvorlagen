@@ -3,7 +3,7 @@
 # Erzeugt Verzeichnisse für Tabellen, Abbildungen und Listings
 #
 # Funktionsweise:
-# - Suche in adoc-Dateien aller Dokumente (1) nach Zeilen der Form
+# - Suche in .adoc-Dateien aller Dokumente (1) nach Zeilen der Form
 #   '[id="(table-XXX' (2) bzw. '[id="(image-XXX' (3) bzw. '[id="(listing-XXX' (4)
 # - Erzeuge für jeden Treffer einen Eintrag im jeweiligen Verzeichnis in der Form
 #   '<<table-XXX>> {desc-XXX}' z.B. für Tabellen

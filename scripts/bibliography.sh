@@ -5,7 +5,7 @@
 # Funktionsweise:
 # - common/bibliography.adoc enthält alle Literaturrefenzen in der Form [[[BibRef]]]. Baue eine Liste aller Referenzen (1)
 # - Suche in adoc-Dateien aller Dokumente (2) nach Referenzen der Form <<BibRef>> (3)
-# - Extrahiere für jede gefundene Referenz den Eintrag aus bibliography.adoc und übernehme in indiviuelle
+# - Extrahiere für jede gefundene Referenz den Eintrag aus bibliography.adoc und übernehme in individuelle
 #   bibliography.adoc des Dokuments (4)
 
 # (1)
