@@ -3,7 +3,7 @@
 # Erzeugt Verzeichnisse für Tabellen, Abbildungen und Listings
 #
 # Funktionsweise:
-# - Suche in adoc-Dateien aller Dokumente (1) nach Zeilen der Form
+# - Suche in .adoc-Dateien aller Dokumente (1) nach Zeilen der Form
 #   '[id="(table-XXX' (2) bzw. '[id="(image-XXX' (3) bzw. '[id="(listing-XXX' (4)
 # - Erzeuge für jeden Treffer einen Eintrag im jeweiligen Verzeichnis in der Form
 #   '<<table-XXX>> {desc-XXX}' z.B. für Tabellen
@@ -24,13 +24,13 @@ buildListOfTables() {
 
 # (3)
 buildListOfFigures() {
-    cat $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc | egrep -q '\[id="(image-.+)",'
+    cat $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc $dir/glossary.adoc | egrep -q '\[id="(image-.+)",'
 
     if [ $? -eq 0 ]
     then
         echo -e "\n== Abbildungsverzeichnis\n" > $dir/listoffigures.adoc
 
-        cat $dir/docinfo.adoc $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc | gawk 'match($0, /\[id="(image-.+)",/, m) { print "<<" m[1] ">>" " {desc-" m[1] "}\n" }' | tee -a $dir/listoffigures.adoc
+        cat $dir/docinfo.adoc $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc $dir/glossary.adoc | gawk 'match($0, /\[id="(image-.+)",/, m) { print "<<" m[1] ">>" " {desc-" m[1] "}\n" }' | tee -a $dir/listoffigures.adoc
     else
         touch $dir/listoffigures.adoc
     fi
