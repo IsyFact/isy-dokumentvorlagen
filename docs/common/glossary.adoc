@@ -244,7 +244,7 @@ Eine konforme Änderung muss im entsprechenden <<glossar-Change-Log>> eingetrage
 
 [id="glossar-Konzept",reftext="Konzept"]
 Konzept::
-Ein Konzept ist die fachliche Beschreibung eines <<glossaar-Baustein>>s.
+Ein Konzept ist die fachliche Beschreibung eines <<glossar-Baustein>>s.
 Es enthält Anforderungen an den <<glossar-Baustein>>, Rahmenbedingungen und Architekturentscheidungen sowie den Lösungsansatz.
 
 [id="glossar-Methodik",reftext="Methodik"]
