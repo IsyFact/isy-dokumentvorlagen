@@ -114,15 +114,15 @@ footer:
   border_color: #000000
   recto:
     columns: <35% =0% >65%
-      left: 
+    left: 
         content: 'Seite {page-number} von {page-count}'
-      right: 
+    right: 
         content: Alle urheberrechtlichen Nutzungs- und Verwertungsrechte liegen beim Bundesverwaltungsamt.
   verso:
     columns: <65% =0% >35%
-      right: 
+    right: 
         content:'Seite {page-number} von {page-count}'
-      left: 
+    left: 
         content: Alle urheberrechtlichen Nutzungs- und Verwertungsrechte liegen beim Bundesverwaltungsamt.
 image:
   align: center
