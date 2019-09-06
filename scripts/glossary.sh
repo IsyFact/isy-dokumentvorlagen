@@ -25,11 +25,11 @@ findTerms() {
       rm $dir/grabbedTerms.txt
     fi
     touch $dir/grabbedTerms.txt
-    cat $dir/docinfo.adoc $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc > $dir/TermSrc-temp.adoc
+    cat  $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc > $dir/TermSrc-temp.adoc
     for term in $@
     do
         cat $dir/TermSrc-temp.adoc | gawk '{while(match($0,/<<([^<>]+)>>/)) {print substr($0,RSTART+2,RLENGTH-4); $0=substr($0,RSTART+RLENGTH)}}' | grep $term  | grep -v 'image-glossar-' | sort -u >> $dir/grabbedTerms.txt
-        # cat $dir/docinfo.adoc $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc | gawk -v foundref=$term 'match($0, /<<([^<>]+)>>/, m) && m[1] == foundref { print m[1]; }' | grep 'glossar-' | grep -v 'image-glossar-' | sort -u
+        # cat $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc | gawk -v foundref=$term 'match($0, /<<([^<>]+)>>/, m) && m[1] == foundref { print m[1]; }' | grep 'glossar-' | grep -v 'image-glossar-' | sort -u
     done
 
     touch $dir/grabbedTerms-temp.txt
@@ -57,7 +57,7 @@ findTermswithGlos() {
       rm $dir/grabbedTerms.txt
     fi
     touch $dir/grabbedTerms.txt
-    cat $dir/docinfo.adoc $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc $dir/anhaenge.adoc $dir/glossary.adoc > $dir/TermSrc-temp.adoc
+    cat  $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc $dir/anhaenge.adoc $dir/glossary.adoc > $dir/TermSrc-temp.adoc
 
 
     for term in $@
