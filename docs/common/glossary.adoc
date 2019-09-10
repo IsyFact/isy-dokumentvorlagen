@@ -38,7 +38,7 @@ Dieser Begriff sollte *nicht* pauschal als Synonym für <<glossar-Anwendungssyst
 [id="glossar-Anwendungsdomaene",reftext="Anwendungsdomäne"]
 Anwendungsdomäne::
 Eine Domäne im Kontext der <<glossar-A-Architektur>> entspricht der Begrifflichkeit aus Sicht des „Domain Driven Design“.
-Eine Anwendungsdomäne gruppiert fachlich zusammengehörende <<glossar-Anwendungssystem>>e. Werden <<glossar-Querschnittssystem>>e gruppiert, entsteht eine <<glossar-Querschnittsdomaene>>.
+Eine Anwendungsdomäne gruppiert fachlich zusammengehörende Anwendungssysteme. Werden Querschnittssysteme gruppiert, entsteht eine <<glossar-Querschnittsdomaene>>.
 
 [id="image-Anwendungsdomaene",reftext="{figure-caption} {counter:figures}"]
 .{desc-image-Anwendungsdomaene}
@@ -48,7 +48,7 @@ Beispiele für Anwendungsdomänen: Bewertung von Dienstposten, Finanzielle Förd
 
 [id="glossar-Anwendungskern",reftext="Anwendungskern"]
 Anwendungskern (AWK)::
-Der Anwendungskern beinhaltet die Anwendungslogik eines <<glossar-Anwendungssystem>>s.
+Der Anwendungskern beinhaltet die Anwendungslogik eines Anwendungssystems.
 
 [id="image-glossar-3",reftext="{figure-caption} {counter:figures}"]
 .{desc-image-glossar-3}
@@ -57,25 +57,25 @@ image::glossar-3.png[align="center"]
 [id="glossar-Anwendungskomponente",reftext="Anwendungskomponente"]
 Anwendungskomponente (ANK)::
 Eine Anwendungskomponente beschreibt eine Menge von funktional zusammenhängenden Anwendungsfällen.
-Anwendungskomponenten sind Bestandteile von <<glossar-Anwendungssystem>>en.
+Anwendungskomponenten sind Bestandteile von Anwendungssystemen.
 
 Beispiele: Benutzerverwaltung: ANK_Benutzer, ANK_Rollen, ...
 
 [id="glossar-Anwendungskontext",reftext="Anwendungskontext"]
 Anwendungskontext::
-Sammlung von nicht-funktionalen und technischen Anforderungen zur Umsetzung einer „Klasse“ von <<glossar-Anwendungssystem>>en – unabhängig von der Fachlichkeit.
-Ein Anwendungskontext kann zu neuen <<glossar-Anwendungstyp>>en und damit zu einer neuen spezifischen <<glossar-Software-Factory>> führen.
+Sammlung von nicht-funktionalen und technischen Anforderungen zur Umsetzung einer „Klasse“ von Anwendungssystemen – unabhängig von der Fachlichkeit.
+Ein Anwendungskontext kann zu neuen Anwendungstypen und damit zu einer neuen spezifischen <<glossar-Software-Factory>> führen.
 
 [id="glossar-Anwendungslandschaft",reftext="Anwendungslandschaft"]
 Anwendungslandschaft (allgemeine Definition)::
-Gröbste Strukturierungsebene für eine Menge von <<glossar-Anwendungssystem>>en:
-eine Anwendungslandschaft enthält <<glossar-Anwendungsdomaene>>n, die wiederum <<glossar-Anwendungssystem>>e gruppieren.
-Zwischen den in einer Anwendungslandschaft vorhandenen <<glossar-Anwendungs­system>>en ist in der Regel eine hohe Interaktion zu erwarten.
+Gröbste Strukturierungsebene für eine Menge von Anwendungssystemen:
+eine Anwendungslandschaft enthält Anwendungsdomaenen, die wiederum Anwendungssysteme gruppieren.
+Zwischen den in einer Anwendungslandschaft vorhandenen Anwendungssystemen ist in der Regel eine hohe Interaktion zu erwarten.
 
 [id="glossar-Anwendungslandschaft-IsyFact",reftext="Anwendungslandschaft (IsyFact)"]
 Anwendungslandschaft (IsyFact)::
-Die <<glossar-Anwendungslandschaft>> der <<glossar-IsyFact>> besteht aus <<glossar-Anwendungsdomaene>>n, einem <<glossar-Portal>> und einem <<glossar-Service-Gateway>>.
-Eine <<glossar-Anwendungsdomaene>> wiederum besteht aus <<glossar-Fachanwendung>> und <<glossar-Querschnittssystem>>en.
+Die <<glossar-Anwendungslandschaft>> der <<glossar-IsyFact>> besteht aus Anwendungsdomaenen, einem <<glossar-Portal>> und einem <<glossar-Service-Gateway>>.
+Eine <<glossar-Anwendungsdomaene>> wiederum besteht aus <<glossar-Fachanwendung>> und Querschnittssystemen.
 
 [id="image-glossar-4",reftext="{figure-caption} {counter:figures}"]
 .{desc-image-glossar-4}
@@ -84,7 +84,7 @@ image::glossar-4.png[align="center"]
 [id="glossar-Anwendungssystem",reftext="Anwendungssystem"]
 Anwendungssystem::
 Ein Anwendungssystem ist eine zusammengehörende, logische Einheit aus Funktionen, Daten und Schnittstellen.
-Es besteht aus <<glossar-Anwendungskomponente>>n und <<glossar-Querschnittskomponente>>n.
+Es besteht aus Anwendungskomponenten und Querschnittskomponenten.
 Anwendungssysteme unterstützen Geschäftsprozesse.
 Stellt ein Anwendungssystem eine Fachlogik dar, so handelt es sich um eine <<glossar-Fachanwendung>>.
 Ein Anwendungssystem ist Bestandteil der <<glossar-A-Architektur>>.
@@ -92,14 +92,14 @@ Aus Sicht der <<glossar-T-Architektur>> bildet ein <<glossar-IT-System>> die sof
 
 [id="glossar-Anwendungstyp",reftext="Anwendungstyp"]
 Anwendungstyp::
-Sammlung von Architekturvorgaben (aller <<glossar-Architektursicht>>en) zur Entwicklung eines <<glossar-Anwendungssystem>>s mit gleichartigen spezifischen Eigenschaften.
-In diesem Sinne gruppiert ein Anwendungstyp Eigenschaften von <<glossar-Anwendungssystem>>en.
-Für jeden Anwendungstyp ist ein Satz von <<glossar-Blaupause>>n notwendig.
+Sammlung von Architekturvorgaben (aller Architektursichten) zur Entwicklung eines Anwendungssystems mit gleichartigen spezifischen Eigenschaften.
+In diesem Sinne gruppiert ein Anwendungstyp Eigenschaften von Anwendungssystemen.
+Für jeden Anwendungstyp ist ein Satz von Blaupausen notwendig.
 
 [id="glossar-Architektursicht",reftext="Architektursicht"]
 Architektursicht::
 In Anlehnung an iSAQB werden in der <<glossar-IsyFact>> die Sichten <<glossar-A-Architektur>>, <<glossar-T-Architektur>> und <<glossar-TI-Architektur>> unterschieden.
-Nachfolgende Abbildung zeigt die Orthogonalität von Architektursichten und <<glossar-Anwendungstyp>>en.
+Nachfolgende Abbildung zeigt die Orthogonalität von Architektursichten und Anwendungstypen.
 Jeder <<glossar-Anwendungstyp>> besitzt eine spezifische Darstellung in jeder Sicht.
 
 [id="image-Anwendungstypen",reftext="{figure-caption} {counter:figures}"]
@@ -110,18 +110,18 @@ NOTE: iSAQB = international Software Architecture Qualification Board
 
 [id="glossar-Auslieferung",reftext="Auslieferung"]
 Auslieferung (Deployment)::
-Im Kontext der Auslieferung von sowohl <<glossar-Open-Source-Release>>s als auch <<glossar-Closed-Source-Release>>s wird Software (<<glossar-Bibliothek>>en sowie <<glossar-Anwendungssystem>>e) und die dazugehörige Dokumentation ausgeliefert.
+Im Kontext der Auslieferung von sowohl Open-Source-Releases als auch Closed-Source-Releases wird Software (Bibliotheken sowie Anwendungssysteme) und die dazugehörige Dokumentation ausgeliefert.
 Die entwickelte Software wird auf einer Betriebsumgebung (<<glossar-Plattform>>) installiert.
 Zu jeder Auslieferung gibt es ein <<glossar-Change-Log>>.
 
 [id="glossar-Basisdienst",reftext="Basisdienst"]
 Basisdienst::
-Ein Basisdienst ist ein <<glossar-Dienst>>, der eine gemeinsame, übergreifende Grundlage für andere, darauf aufbauende <<glossar-Dienst>>e (Fach- und Querschnittsdienste) bildet.
+Ein Basisdienst ist ein <<glossar-Dienst>>, der eine gemeinsame, übergreifende Grundlage für andere, darauf aufbauende Dienste (Fach- und Querschnittsdienste) bildet.
 Der Basisdienst ist keiner einzelnen fachlichen Aufgabe direkt zugeordnet.
 
 [id="glossar-Batch",reftext="Batch"]
 Batch::
-Ein Batch ist eine automatische Datenverarbeitung ohne manuelle Interaktion eines <<glossar-Anwender>>s (z.B. Einhaltung gesetzlicher Löschfristen).
+Ein Batch ist eine automatische Datenverarbeitung ohne manuelle Interaktion eines Anwenders (z.B. Einhaltung gesetzlicher Löschfristen).
 Der <<glossar-Nutzer>> kann die Batchlogik in vorbereitete Strukturen implementieren, die <<glossar-IsyFact>> stellt einen fertigen Batchrahmen zur Verfügung.
 Die Batches können dabei den <<glossar-Anwendungskern>> aufrufen und nutzen.
 
@@ -137,7 +137,7 @@ NOTE: Da zwischen einem logischen Baustein und einem <<glossar-Anwendungssystem>
 [id="glossar-Bibliothek",reftext="Bibliothek"]
 Bibliothek::
 Kleinste auslieferbare Einheit von thematisch zusammengehörenden Funktionen.
-Eine oder mehrere Bibliotheken sind Bestandteile von <<glossar-IT-System>>en oder anderer Bibliotheken.
+Eine oder mehrere Bibliotheken sind Bestandteile von IT-Systemen oder anderer Bibliotheken.
 Bibliotheken unterstützen nur und sind nicht (für sich) alleine ausführbar.
 
 [id="image-glossar-1",reftext="{figure-caption} {counter:figures}"]
@@ -146,13 +146,13 @@ image::glossar-1.png[align="center"]
 
 [id="glossar-Blaupause",reftext="Blaupause"]
 Blaupause::
-Blaupausen beschreiben die durch die <<glossar-IsyFact>> vorgegebene Architektur und <<glossar-Konzept>>e einer <<glossar-Anwendungslandschaft>> für den Betrieb von <<glossar-Fachanwendung>>en von den drei <<glossar-Architektursicht>>en aus der fachlichen Sicht, der softwaretechnischen Sicht und der Sicht der technischen Infrastruktur.
+Blaupausen beschreiben die durch die <<glossar-IsyFact>> vorgegebene Architektur und Konzepte einer <<glossar-Anwendungslandschaft>> für den Betrieb von Fachanwendungen von den drei Architektursichten aus der fachlichen Sicht, der softwaretechnischen Sicht und der Sicht der technischen Infrastruktur.
 
 NOTE: Für jeden <<glossar-Anwendungstyp>> ist ein Satz von Blaupausen notwendig.
 
 [id="glossar-Change-Log",reftext="Change Log"]
 Change Log::
-Ein Change Log ist eine Liste, die umgesetzte Änderungen Versionen (und somit <<glosar-Release>>s) zuordnet.
+Ein Change Log ist eine Liste, die umgesetzte Änderungen Versionen (und somit Releases) zuordnet.
 Die Einträge werden durch Entwickler geschrieben, wenn sie Änderungen in eine <<glossar-Bibliothek>> integrieren.
 Pro <<glossar-Bibliothek>> und <<glossar-Anwendungssystem>> existiert ein Change Log.
 
@@ -164,13 +164,13 @@ Es enthält:
 
 [id="glossar-Closed-Source-Release",reftext="Closed Source Release"]
 Closed Source Release::
-Bezeichnet <<glossar-Release>>s aller <<glossar-Baustein>>e der <<glossar-IsyFact>> sowie darauf basierender Endprodukte, die das Bundesverwaltungsamt anderen Behörden im Rahmen der Kieler Beschlüsse als <<glossar-EfA>> anbietet.
+Bezeichnet Releases aller Bausteine der <<glossar-IsyFact>> sowie darauf basierender Endprodukte, die das Bundesverwaltungsamt anderen Behörden im Rahmen der Kieler Beschlüsse als Einer-für-Alle-System anbietet.
 Das Closed Source Release der <<glossar-IsyFact>> komplettiert das <<glossar-Open-Source-Release>>.
 
 [id="glossar-Dienst",reftext="Dienst"]
 Dienst::
 Ein Dienst ist eine logische Einheit, die einen definierten Umfang an funktionalen Anforderungen erfüllt.
-Es gibt <<glossar-Basisdienst>>e, <<glossar-Fachdienst>>e und <<glossar-Querschnittsdienst>>e.
+Es gibt Basisdienste, Fachdienste und Querschnittsdienste.
 
 [id="glossar-Domaene",reftext="Domäne"]
 Domäne::
@@ -180,23 +180,23 @@ Domäne::
 Einer-für-Alle-System (EfA)::
 Begriff aus der deutschen Bundesverwaltung.
 Bezeichnet ein System, welches im Auftrag einer Behörde entwickelt wurde und anderen Behörden zur Nutzung und ggf. auch zur Weiterentwicklung angeboten wird.
-Im Rahmen der <<glossar-IsyFact>> werden Teile der <<glossar-IFE>> als Einer-für-Alle-System angeboten.
+Im Rahmen der <<glossar-IsyFact>> werden Teile der IsyFact-Erweiterungen (IFE) als Einer-für-Alle-System angeboten.
 
 [id="glossar-Fachanwendung",reftext="Fachanwendung"]
 Fachanwendung::
 Eine Fachanwendung ist ein <<glossar-Anwendungssystem>>, welches einen oder mehrere Geschäftsprozesse einer <<glossar-Anwendungsdomaene>> spezifiziert.
 Sie beschreibt die gesamten hierfür notwendigen Funktionen, von der Benutzerschnittstelle über die fachliche Logik, die Prozesse bis hin zur Datenhaltung.
-Dabei kann sie die <<glossar-Basisdienst>>e von <<glossar-Querschnittssystem>>en oder andere <<glossar-Anwendungssystem>>e nutzen.
+Dabei kann sie die Basisdienste von Querschnittssystemen oder andere Anwendungssysteme nutzen.
 
 [id="glossar-Fachdienst",reftext="Fachdienst"]
 Fachdienst::
 Ein Fachdienst ist ein <<glossar-Dienst>>, der direkt der Erfüllung einer speziellen Fachaufgabe dient.
 Der Kontext eines Fachdienstes ist in der operativen Praxis meist auf eine <<glossar-Anwendungslandschaft>> beschränkt.
-Sie werden durch <<glossar-Basisdienst>>e unterstützt.
+Sie werden durch Basisdienste unterstützt.
 
 [id="glossar-Geschaeftslogik",reftext="Geschäftslogik"]
 Geschäftslogik::
-Die Anwendungslogik von <<glossar-Fachanwendung>>en.
+Die Anwendungslogik von Fachanwendungen.
 
 [id="glossar-GUI",reftext="Benutzeroberfläche (GUI)"]
 Benutzeroberfläche (GUI)::
@@ -205,18 +205,18 @@ Die <<glossar-IsyFact>> stellt ein fertiges Framework zur Verfügung und struktu
 
 [id="glossar-IsyFact",reftext="IsyFact"]
 IsyFact (IF)::
-Allgemeine Software-Fabrik (engl. <<glossar-Software-Factory>>) für den Bau von komplexen <<glossar-Anwendungslandschaft>>en, die vom Bundesverwaltungsamt entwickelt wird.
-Sie bündelt bestehendes technisches Know-how um <<glossar-Anwendungssystem>>e effizienter entwickeln und betreiben zu können.
+Allgemeine Software-Fabrik (engl. <<glossar-Software-Factory>>) für den Bau von komplexen Anwendungslandschaften, die vom Bundesverwaltungsamt entwickelt wird.
+Sie bündelt bestehendes technisches Know-how um Anwendungssysteme effizienter entwickeln und betreiben zu können.
 
 Quelle: http://isyfact.de[isyfact.de]
 
 Die IsyFact enthält Funktionalität „allgemeiner Natur“, die *nicht* zu einem spezifischen <<glossar-Anwendungskontext>> gehören.
-Die IsyFact besteht aus dem <<glossar-IFS>> und den <<glossar-IFE>>.
+Die IsyFact besteht aus den IsyFact-Standards (IFS) und den IsyFact-Erweiterungen.
 
 [id="glossar-IFE",reftext="IsyFact-Erweiterungen (IFE)"]
 IsyFact-Erweiterungen (IFE)::
 Umfasst alle Bestandteile der <<glossar-IsyFact>>, die *nicht* für jede <<glossar-Fachanwendung>> verpflichtend sind.
-IsyFact-Erweiterungen können auch von <<glossar-Nutzer>>n der <<glossar-IsyFact>> eingebracht werden.
+IsyFact-Erweiterungen können auch von Nutzern der <<glossar-IsyFact>> eingebracht werden.
 
 [id="glossar-IFS",reftext="IsyFact-Standards (IFS)"]
 IsyFact-Standards (IFS)::
@@ -225,7 +225,7 @@ Die IsyFact-Standards werden zentral durch das Bundesverwaltungsamt weiterentwic
 
 [id="glossar-Instanz",reftext="Instanz"]
 Instanz::
-Ausgeführte Instanz eines <<glossar-IT-System>>s auf einer <<glossar-Plattform>>.
+Ausgeführte Instanz eines IT-Systems auf einer <<glossar-Plattform>>.
 Eine Instanz ist Bestandteil der <<glossar-TI-Architektur>> einer <<glossar-Fachanwendung>> und läuft in einer <<glossar-Systemlandschaft>>.
 
 [id="glossar-IT-System",reftext="IT-System"]
@@ -237,7 +237,7 @@ Aus Sicht der <<glossar-A-Architektur>> ist die Entsprechung zum IT-System das <
 [id="glossar-konform",reftext="konforme Änderung"]
 konforme Änderung::
 Eine konforme Änderung ist eine Änderung, die das Außenverhalten einer Komponente verändert (siehe auch <<glossar-vollkonform>> und <<glossar-nicht-konform>>), wobei Abwärtskompatibilität gewährleistet ist.
-Das bedeutet, dass <<glossar-Nutzer>> der entsprechenden <<glossar-Bibliothek>>en keine Anpassungen vornehmen müssen, um die geänderte Komponente weiterhin nutzen zu können.
+Das bedeutet, dass <<glossar-Nutzer>> der entsprechenden Bibliotheken keine Anpassungen vornehmen müssen, um die geänderte Komponente weiterhin nutzen zu können.
 
 Beispiel für eine konforme Änderung ist das Ändern eines Default-Werts oder die Bereitstellung neuer Funktionalität, ohne bestehende Funktionalität anzupassen.
 Eine konforme Änderung muss im entsprechenden <<glossar-Change-Log>> eingetragen werden.
@@ -249,7 +249,7 @@ Es enthält Anforderungen an den <<glossar-Baustein>>, Rahmenbedingungen und Arc
 
 [id="glossar-Methodik",reftext="Methodik"]
 Methodik::
-Im Rahmen einer <<glossar-Software-Factory>> bildet die Methodik die Grundlage für die Umsetzung von <<glossar-Fachanwendung>>en mittels einer standardisierten Vorgehensweise nach dem V-Modell XT Bund.
+Im Rahmen einer <<glossar-Software-Factory>> bildet die Methodik die Grundlage für die Umsetzung von Fachanwendungen mittels einer standardisierten Vorgehensweise nach dem V-Modell XT Bund.
 Dabei definiert die Software Factory kein eigenes Vorgehen oder Vorgehensmodell, sondern passt die eigenen Produkte (im Sinne des V-Modell XT) in ein zum V-Modell XT konformes Vorgehen ein.
 
 NOTE: Das V-Modell-XT bietet einen Projektassistenten für das Projekt-Tailoring, der zusätzlich auch noch Vorlagen aller benötigten Dokumente mit Ausfüllhinweisen zur Verfügung stellt.
@@ -257,62 +257,62 @@ NOTE: Das V-Modell-XT bietet einen Projektassistenten für das Projekt-Tailoring
 [id="glossar-nicht-konform",reftext="nicht konforme Änderung"]
 nicht konforme Änderung::
 Eine nicht konforme Änderung ist eine Änderung, die das Außenverhalten einer Komponente verändert (siehe auch <<glossar-vollkonform>> und <<glosar-konform>>), wobei *keine* Abwärtskompatibilität gewährleistet ist.
-Das bedeutet, dass <<glossar-Nutzer>> der entsprechenden <<glossar-Bibliothek>>en in der Regel Anpassungen vornehmen müssen, um die Komponente weiter nutzen zu können.
+Das bedeutet, dass <<glossar-Nutzer>> der entsprechenden Bibliotheken in der Regel Anpassungen vornehmen müssen, um die Komponente weiter nutzen zu können.
 
 Beispiele für nicht konforme Änderungen sind das Ändern von Schnittstellenformaten oder das Verändern von bereits etablierter Funktionen.
 Eine nicht konforme Änderung muss im entsprechenden <<glossar-Change-Log>> eingetragen werden.
 
 [id="glossar-Nutzer",reftext="Nutzer"]
 Nutzer::
-Jemand, der eine <<glossar-Software-Factory>> nutzt, um <<glossar-Fachanwendung>>en zu bauen und zu betreiben.
+Jemand, der eine <<glossar-Software-Factory>> nutzt, um Fachanwendungen zu bauen und zu betreiben.
 Der Begriff steht im Kontext einer <<glossar-Software-Factory>> im Unterschied zum <<glossar-Anwender>>.
 
 [id="glossar-Nutzungsvorgaben",reftext="Nutzungsvorgaben"]
 Nutzungsvorgaben::
-Nutzungsvorgaben beschreiben die Verwendung eines <<glossar-Baustein>>s aus technischer Sicht.
-Sie sind Teil der Dokumentation eines <<glossar-Baustein>>s und richten sich an Entwickler. Das Dokument komplementiert das <<glossar-Konzept>>, das sich an fachlich Interessierte und Architekten richtet.
+Nutzungsvorgaben beschreiben die Verwendung eines Bausteins aus technischer Sicht.
+Sie sind Teil der Dokumentation eines Bausteins und richten sich an Entwickler. Das Dokument komplementiert das <<glossar-Konzept>>, das sich an fachlich Interessierte und Architekten richtet.
 
 [id="glossar-Open-Source-Release",reftext="Open Source Release"]
 Open Source Release::
-Bezeichnet <<glossar-Release>>s aller <<glossar-Baustein>>e der <<glossar-IsyFact>> sowie darauf basierender Endprodukte, die das Bundesverwaltungsamt unter der Apache 2.0 Lizenz auch nicht-behördlichen <<glossar-Nutzer>>n anbietet.
-Das Open Source Release beinhaltet die <<glossar-IFS>> sowie Teile der <<glossar-IFE>>.
+Bezeichnet Releases aller Bausteine der <<glossar-IsyFact>> sowie darauf basierender Endprodukte, die das Bundesverwaltungsamt unter der Apache 2.0 Lizenz auch nicht-behördlichen Nutzern anbietet.
+Das Open Source Release beinhaltet die IsyFact-Standards (IFS) sowie Teile der IsyFact-Erweiterungen (IFE).
 
 [id="glossar-Persistenz",reftext="Persistenz"]
 Persistenz::
-Die Persistenzschicht ermöglicht es, Daten der <<glossar-Fachanwendung>>en permanent zu speichern.
+Die Persistenzschicht ermöglicht es, Daten der Fachanwendungen permanent zu speichern.
 Die Datenzugriffslogik der <<glossar-Fachanwendung>> wird in strukturierten Komponenten realisiert.
 Die <<glossar-IsyFact>> stellt ein fertiges Persistenz-Framework zur Verfügung.
 
 [id="glossar-Plattform",reftext="Plattform"]
 Plattform::
-Die Plattform definiert allgemeine Vorgaben und Rahmenbedingungen für den Betrieb von <<glossar-Anwendungslandschaft>>en, die sich aus der Verwendung der <<glossar-IsyFact>> ergeben.
+Die Plattform definiert allgemeine Vorgaben und Rahmenbedingungen für den Betrieb von Anwendungslandschaften, die sich aus der Verwendung der <<glossar-IsyFact>> ergeben.
 Es werden Rechner-, Unterstützungsprogramm- und Netzwerkstrukturen beschrieben.
 
 [id="glossar-Portal",reftext="Portal"]
 Portal::
-Zentraler Zugangspunkt zu den <<glossar-Fachanwendung>>en einer <<glossar-Anwendungslandschaft>>.
-Das Portal übernimmt die gemeinsame Authentifizierung und Autorisierung für alle <<glossar-Fachanwendung>>en.
+Zentraler Zugangspunkt zu den Fachanwendungen einer <<glossar-Anwendungslandschaft>>.
+Das Portal übernimmt die gemeinsame Authentifizierung und Autorisierung für alle Fachanwendungen.
 
 [id="glossar-Querschnittsdienst",reftext="Querschnittsdienst"]
 Querschnittsdienst::
-Ein Querschnittsdienst ist ein <<glossar-Dienst>>, der in unterschiedlichen <<glossar-Anwendungslandschaft>>en stets eine anfallende Aufgabe in ähnlicher oder gleicher Form unterstützt (z.B. Personalwesen).
+Ein Querschnittsdienst ist ein <<glossar-Dienst>>, der in unterschiedlichen Anwendungslandschaften stets eine anfallende Aufgabe in ähnlicher oder gleicher Form unterstützt (z.B. Personalwesen).
 
 [id="glossar-Querschnittsdomaene",reftext="Querschnittsdomäne"]
 Querschnittsdomäne::
-Eine <<glossar-Anwendungsdomaene>>, die nur <<glossar-Querschnittssystem>>e gruppiert, wird als Querschnittsdomäne bezeichnet.
+Eine <<glossar-Anwendungsdomaene>>, die nur Querschnittssysteme gruppiert, wird als Querschnittsdomäne bezeichnet.
 
 [id="glossar-Querschnittskomponente",reftext="Querschnittskomponente"]
 Querschnittskomponente::
-Querschnittskomponenten sind <<glossar-Anwendungskomponente>>n, die nur querschnittliche Funktionen zur Verfügung stellen.
-Diese querschnittlichen Komponenten sind in jeweils eigenen <<glossar-Blaupause>>n oder <<glossar-Baustein>>en beschrieben und durch eine <<glossar-Bibliothek>> umgesetzt.
+Querschnittskomponenten sind Anwendungskomponenten, die nur querschnittliche Funktionen zur Verfügung stellen.
+Diese querschnittlichen Komponenten sind in jeweils eigenen Blaupausen oder Bausteinen beschrieben und durch eine <<glossar-Bibliothek>> umgesetzt.
 
 Beispiel: Benutzerverwaltung
 
-NOTE: <<glossar-Querschnittssystem>>e wurden früher auch Querschnittskomponenten genannt, bevor es zu einer genauen Definition von <<glossar-Baustein>>, <<glossar-Bibliothek>>, System und Komponente kam.
+NOTE: Querschnittssysteme wurden früher auch Querschnittskomponenten genannt, bevor es zu einer genauen Definition von <<glossar-Baustein>>, <<glossar-Bibliothek>>, System und Komponente kam.
 
 [id="glossar-Querschnittssystem",reftext="Querschnittssystem"]
 Querschnittssystem::
-Querschnittssysteme sind spezielle <<glossar-Anwendung>>en in einer <<glossar-Querschnittsdomaene>>, welche <<glossar-Basisdienst>>e für weitere (mindestens zwei) <<glossar-Fachanwendung>>en einer <<glossar-Anwendungslandschaft>> bereitstellen.
+Querschnittssysteme sind spezielle Anwendungen in einer <<glossar-Querschnittsdomaene>>, welche Basisdienste für weitere (mindestens zwei) Fachanwendungen einer <<glossar-Anwendungslandschaft>> bereitstellen.
 
 Beispiele: Portalstartseite, Benutzerverzeichnis, Hilfeanwendung
 
@@ -322,7 +322,7 @@ Veröffentlichter Versionsstand einer <<glossar-Software-Factory>>.
 
 [id="glossar-Service",reftext="Service"]
 Service::
-Technische Komponente (und damit Teil der <<glossar-T-Architektur>>), über die andere <<glossar-Anwendung>>en innerhalb einer <<glossar-Anwendungslandschaft>> auf die Funktionalität des <<glossar-Anwendungskern>>s eines <<glossar-IT-System>>s zugreifen.
+Technische Komponente (und damit Teil der <<glossar-T-Architektur>>), über die andere Anwendungen innerhalb einer <<glossar-Anwendungslandschaft>> auf die Funktionalität des Anwendungskerns eines IT-Systems zugreifen.
 Zugriffe von außerhalb der <<glossar-Anwendungslandschaft>> laufen zusätzlich über ein <<glossar-Service-Gateway>>.
 
 [id="glossar-Service-Gateway",reftext="Service-Gateway"]
@@ -331,7 +331,7 @@ Stellt die Verbindung zwischen einem externen und einem internen <<glossar-Diens
 
 [id="glossar-Software-Factory",reftext="Software Factory (SF)"]
 Software Factory (SF)::
-Eine Software Factory ist eine Sammlung von <<glossar-Blaupause>>n, <<glossar-Baustein>>en, einer <<glossar-Plattform>>, einer <<glossar-Methodik>> und <<glossar-Werkzeug>>en, die es erlaubt, durch Wiederverwendung <<glossar-Fachanwendung>> weitestgehend standardisiert zu entwickeln.
+Eine Software Factory ist eine Sammlung von Blaupausen, Bausteinen, einer <<glossar-Plattform>>, einer <<glossar-Methodik>> und Werkzeugen, die es erlaubt, durch Wiederverwendung <<glossar-Fachanwendung>> weitestgehend standardisiert zu entwickeln.
 Die Herausforderung bei der Wiederverwendung besteht darin, das einmal erworbene Wissen über die Anwendungsentwicklung in einer <<glossar-Anwendungsdomaene>> so zu strukturieren, zu dokumentieren und vorzuhalten, dass nachfolgende Projekte einfach und verlässlich darauf zugreifen können, und damit die Einhaltung des Architekturrahmens sichergestellt ist.
 „Standardisiert“ bedeutet, dass alle wesentlichen technischen Architekturentscheidungen bereits durch die Software Factory getroffen und in entsprechenden Komponenten implementiert sind.
 Architekten und Entwickler können sich damit auf die Umsetzung der jeweiligen Fachlichkeit der Anwendung konzentrieren.
@@ -345,7 +345,7 @@ Systemlandschaft::
 Der Begriff der <<glossar-Anwendungslandschaft>> ist fachlich motiviert.
 Die technische Entsprechung hierfür ist der Begriff der Systemlandschaft.
 
-Eine Systemlandschaft beinhaltet alle software-technisch in <<glossar-IT-System>>e umgesetzten <<glossar-Anwendungssystem>>e der <<glossar-Anwendungslandschaft>> sowie technische Systeme zur Unterstützung (z.B. Datenbanken, Web-Server, usw.).
+Eine Systemlandschaft beinhaltet alle software-technisch in IT-Systeme umgesetzten Anwendungssysteme der <<glossar-Anwendungslandschaft>> sowie technische Systeme zur Unterstützung (z.B. Datenbanken, Web-Server, usw.).
 
 [id="glossar-T-Architektur",reftext="T-Architektur"]
 T-Architektur::
@@ -354,7 +354,7 @@ Technische <<glossar-Architektursicht>> auf die Software-Architektur einer <<glo
 [id="glossar-TI-Architektur",reftext="TI-Architektur"]
 TI-Architektur::
 Technische Infrastruktursicht auf die Software-Architektur einer <<glossar-Fachanwendung>>.
-Sie beschreibt den Aufbau der Betriebsumgebung für die <<glossar-IT-System>>e einer IsyFact-<<glossar-Systemlandschaft>>.
+Sie beschreibt den Aufbau der Betriebsumgebung für die <IT-Systeme einer IsyFact-<<glossar-Systemlandschaft>>.
 
 [id="glossar-vollkonform",reftext="vollkonforme Änderung"]
 vollkonforme Änderung::
