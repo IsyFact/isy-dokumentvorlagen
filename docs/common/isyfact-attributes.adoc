@@ -1,11 +1,11 @@
 :doctype: book
 :encoding: utf-8
 :lang: de
-// in pom.xml  :icons: font
+:icons: font
 :imagesdir: images
 :sectnums:
 :sectlinks:
-// in pom.xml  :sectanchors:
+:sectanchors:
 :sectnumlevels: 5
 //:source-highlighter: rouge
 :source-highlighter: coderay
@@ -29,38 +29,34 @@
 :reproducible:
 // Aktiviert die Macros kbd, menu und btn
 :experimental:
-// plantuml Einbindung
 ifdef::backend-pdf[]
 :pagenums:
-// :imagesoutdir: {plantUMLDir}
 endif::[]
-// für plantuml-asciidoctor pdf  tbexplored
-
-:plantumlconfig: {isy-dokumentvorlagen}/docs/common/isyfact-plantuml.cfg
-
 //
 // :sourcedir:
 // icon-set: XXX
+// :coderay-linenums-mode: inline  - table ist default
 //
-// in pom.xml  :stylesdir:
-// in pom.xml  :stylesheet:
+//:stylesdir: {fragmentsdir}
+//:stylesheet: asciidoc.css
 //:linkcss:
 //
-//von Asciidoctor automatisch gesetzt in fullpath
+//von asciidoc  fullpath
 // docdir
 // outdir
 // docfile
 // outfile
 //
 // :outfilesuffix: .adoc
-// :relfileprefix: ..///
 //
-//role CSS classes available to inline elements http://discuss.asciidoctor.org[Discuss Asciidoctor, role="teal"]
+//
+//role   CSS classes available to inline elements    http://discuss.asciidoctor.org[Discuss Asciidoctor, role="teal"]
 //
 // :app-name: pass:quotes[MyApp^2^]
 // Möglichkeiten mit safe-Modus und Pfaden
 //
-//
+// :relfileprefix: ../
+
 // German translation, courtesy of Florian Wilhelm
 ifeval::["{lang}" == "de"]
 :appendix-caption: Anhang
