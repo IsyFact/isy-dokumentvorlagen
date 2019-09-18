@@ -9,6 +9,16 @@ include::{isy-dokumentvorlagen}/docs/common/isyfact-attributes.adoc[]
 
 include::{isy-dokumentvorlagen}/docs/common/colophon.adoc[]
 
+// Einbindung Bibliotheken, wenn nicht genutzt, entfernen
+*Java Bibliothek / IT-System*
+
+[cols="5,2,3",options="header"]
+|====
+|Name |Art |Version
+// Bsp. |isy-web |Bibliothek |siehe isyfact-bom v{version-ifs}
+|====
+
+
 // Executive Summary
 // include::preface.adoc[]
 
