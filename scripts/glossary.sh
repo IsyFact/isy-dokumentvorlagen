@@ -49,6 +49,7 @@ findTerms() {
     then
       rm $dir/grabbedTerms.txt
     fi
+
     rm $dir/TermSrc-temp.adoc
 }
 
@@ -82,7 +83,6 @@ findTermswithGlos() {
     then
       rm $dir/grabbedTerms.txt
     fi
-
     rm $dir/TermSrc-temp.adoc
 }
 
@@ -137,7 +137,7 @@ allDocDirCmd() {
 echo "Generating document dependent glossaries...."
 
 curDir=$(pwd)
-#echo "DEBUG: started in " $curDir
+# "DEBUG: started in " $curDir
 
 allGlossaryTerms=$(readGlossaryTerms)
 
@@ -169,7 +169,7 @@ do
     Counter=0
     # maximale Tiefe für verschachtelte Verweise ist 9 - (countermax in diesem Falle Countermax=10 setzen)
     # einmal durchgehen ist also 2
-    CounterMax=2
+    CounterMax=9
     ActTerms=($foundTerms)
     OldLength=${#ActTerms[@]}
     while [ $Counter -lt $CounterMax ]; do
@@ -179,8 +179,8 @@ do
       ActTerms=($foundTerms)
       NewLength=${#ActTerms[@]}
 
-      echo -e $Counter
-      #echo "alt>"  $OldLength " neu> " $NewLength " ( Lauf: " $Counter ")"
+      #echo -e $Counter
+      echo "alt>"  $OldLength " neu> " $NewLength " ( Lauf: " $Counter ")"
       #for ifrt in ${ActTerms[@]}; do
       #  echo " Verweis         : " $ifrt
       #done
