@@ -3,7 +3,7 @@
 # Erzeugt Verzeichnisse für Tabellen, Abbildungen und Listings
 #
 # Funktionsweise:
-# - Suche in adoc-Dateien aller Dokumente (1) nach Zeilen der Form
+# - Suche in .adoc-Dateien aller Dokumente (1) nach Zeilen der Form
 #   '[id="(table-XXX' (2) bzw. '[id="(image-XXX' (3) bzw. '[id="(listing-XXX' (4)
 # - Erzeuge für jeden Treffer einen Eintrag im jeweiligen Verzeichnis in der Form
 #   '<<table-XXX>> {desc-XXX}' z.B. für Tabellen
@@ -50,23 +50,8 @@ buildListOfListings() {
       fi
 }
 
-allDocDirCmd() {
-    find $ArgOneDir/10_* $ArgOneDir/20_* -name master.adoc | xargs dirname
-}
 
-curDir=$(pwd)
-#echo "DEBUG: started in " $curDir
-
-# wechsele in das übergebene Verzeichnis
-cd $1
-ArgOneDir=$(pwd)
-
-#echo "DEBUG: got ArgOne " $ArgOneDir
-
-allDocDirectories=($(eval "allDocDirCmd"))
-
-# wechsele in das übergebene Arbeitsverzeichnis
-cd $curDir
+allDocDirectories=($(find $1 -name master.adoc | xargs dirname))
 
 # (1)
 for dir in ${allDocDirectories[@]}

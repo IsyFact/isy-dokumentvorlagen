@@ -3,10 +3,13 @@
 # Erzeugt für Dokumente ein individuellen Glossar
 #
 # Funktionsweise:
-# - common/glossary.adoc enthält alle Glossarbegriffe in der Form [id="GlossarBegriff", ... ]. Baue eine Liste aller Begriffe (1)
+# - common/glossary.adoc enthält alle Glossarbegriffe in der Form [id="GlossarBegriff", ... ].
+#   Baue eine Liste aller Begriffe (1)
 # - Suche in adoc-Dateien aller Dokumente (2) nach Referenzen der Form <<GlossarBegriff>> (3)
-# - Extrahiere für jeden gefundenen Begriff den Eintrag aus glossary.adoc und übernehme in indiviuelle
+# - Extrahiere für jeden gefundenen Begriff den Eintrag aus glossary.adoc und übernehme in individuelle
 #   glossary.adoc des Dokuments (4)
+# - nach dynamischen rekursiven Bau des Glossars die zu tiefen (noch nicht aufgelösten Glossar-Links aus
+#   dem erzeugten Glossar säubern (5)
 
 IFS=$'\n'
 
@@ -46,6 +49,7 @@ findTerms() {
     then
       rm $dir/grabbedTerms.txt
     fi
+
     rm $dir/TermSrc-temp.adoc
 }
 
@@ -63,7 +67,6 @@ findTermswithGlos() {
     for term in $@
     do
         cat $dir/TermSrc-temp.adoc | gawk '{while(match($0,/<<([^<>]+)>>/)) {print substr($0,RSTART+2,RLENGTH-4); $0=substr($0,RSTART+RLENGTH)}}' | grep $term  | grep -v 'image-glossar-' | sort -u >> $dir/grabbedTerms.txt
-        #cat $dir/docinfo.adoc $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc $dir/glossary.adoc | gawk -v foundref=$term 'match($0, /<<([^<>]+)>>/, m) && m[1] == foundref { print m[1]; }' | grep 'glossar-' | grep -v 'image-glossar-' | sort -u >> $dir/grabbedTerms.txt
     done
 
     touch $dir/grabbedTerms-temp.txt
@@ -80,7 +83,6 @@ findTermswithGlos() {
     then
       rm $dir/grabbedTerms.txt
     fi
-
     rm $dir/TermSrc-temp.adoc
 }
 
@@ -132,8 +134,10 @@ allDocDirCmd() {
 
 # (1)
 
+echo "Generating document dependent glossaries...."
+
 curDir=$(pwd)
-#echo "DEBUG: started in " $curDir
+# "DEBUG: started in " $curDir
 
 allGlossaryTerms=$(readGlossaryTerms)
 
@@ -163,8 +167,9 @@ do
     #done
     buildDocumentGlossary ${foundTerms[@]}
     Counter=0
-    # maximale Tiefe für verschachtelte Verweise ist 9
-    CounterMax=10
+    # maximale Tiefe für verschachtelte Verweise ist 9 - (countermax in diesem Falle Countermax=10 setzen)
+    # einmal durchgehen ist also 2
+    CounterMax=9
     ActTerms=($foundTerms)
     OldLength=${#ActTerms[@]}
     while [ $Counter -lt $CounterMax ]; do
@@ -173,6 +178,8 @@ do
       buildDocumentGlossary ${foundTerms[@]}
       ActTerms=($foundTerms)
       NewLength=${#ActTerms[@]}
+
+      #echo -e $Counter
       echo "alt>"  $OldLength " neu> " $NewLength " ( Lauf: " $Counter ")"
       #for ifrt in ${ActTerms[@]}; do
       #  echo " Verweis         : " $ifrt
