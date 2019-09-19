@@ -182,6 +182,14 @@
   Nutzungsvorgaben Benutzerverwaltung +
   20_Bausteine/Benutzerverwaltung/Nutzungsvorgaben_Benutzerverwaltung.pdf
 
+- [[[KonzeptJSF]]] +
+  Konzept JSF +
+  20_Bausteine/JSF/Konzept_JSF.pdf
+
+- [[[NutzungsvorgabenJSF]]] +
+  Nutzungsvorgaben JSF +
+  20_Bausteine/JSF/Nutzungsvorgaben_JSF.pdf
+
 - [[[Vorlageanwendung]]] +
   IsyFact-Vorlageanwendung "Terminfindung" +
   https://github.com/IsyFact/IsyFact-Vorlageanwendung
