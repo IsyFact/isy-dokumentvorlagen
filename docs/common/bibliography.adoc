@@ -90,6 +90,10 @@
   Konzept Fehlerbehandlung +
   20_Bausteine/Fehlerbehandlung/Konzept_Fehlerbehandlung.pdf
 
+- [[[NutzungsvorgabenFehlerbehandlung]]] +
+  Nutzungsvorgaben Fehlerbehandlung +
+  20_Bausteine/Fehlerbehandlung/Nutzungsvorgaben_Fehlerbehandlung.pdf
+
 - [[[NutzungsvorgabenSpringLDAP]]] +
   Nutzungskonzept Spring-LDAP +
   20_Bausteine/LDAP-Zugriffe/Nutzungsvorgaben_Spring_LDAP.pdf
