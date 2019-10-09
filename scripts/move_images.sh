@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# HOME=/home/isyfact/IdeaProjects/isy-documentation/
-HOME=/work/BVA_Repo/IsyFact/isy-documentation
+HOME=/home/isyfact/IdeaProjects/isy-documentation/
 
 for p in `cd ${HOME}src/docs/images/; ls *.png`
 do

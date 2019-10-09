@@ -1,12 +1,6 @@
 = Titel des Dokuments: Inhalt
 include::{isy-dokumentvorlagen}/docs/common/isyfact-attributes.adoc[]
-**Dokumentinformationen**
 
-|====
-|Dokumenten-ID:| Bitte hier die Dokument-ID einfügen
-|====
-
-Informationen zu Änderungen an diesem Dokument finden sich in der Datei <<Aenderungshistorie>>.
 // tag::inhalt[]
 
 == Kapitel
