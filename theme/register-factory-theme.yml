@@ -99,10 +99,12 @@ admonition:
 header:
   height: 2cm
   line_height: 1
-  recto_content:
-    left: '{section-or-chapter-title} '
-  verso_content:
-    right: '{section-or-chapter-title}'
+  recto:
+    left: 
+        content: '{section-or-chapter-title} '
+  verso:
+    right: 
+        content: '{section-or-chapter-title}'
 footer:
   height: 1.5cm
   line_height: 1
@@ -112,14 +114,16 @@ footer:
   border_color: #000000
   recto:
     columns: <35% =0% >65%
-    content:
-      left: 'Seite {page-number} von {page-count}'
-      right: Alle urheberrechtlichen Nutzungs- und Verwertungsrechte liegen beim Bundesverwaltungsamt.
+    left: 
+        content: 'Seite {page-number} von {page-count}'
+    right: 
+        content: Alle urheberrechtlichen Nutzungs- und Verwertungsrechte liegen beim Bundesverwaltungsamt.
   verso:
     columns: <65% =0% >35%
-    content:
-      right: 'Seite {page-number} von {page-count}'
-      left: Alle urheberrechtlichen Nutzungs- und Verwertungsrechte liegen beim Bundesverwaltungsamt.
+    right: 
+        content:'Seite {page-number} von {page-count}'
+    left: 
+        content: Alle urheberrechtlichen Nutzungs- und Verwertungsrechte liegen beim Bundesverwaltungsamt.
 image:
   align: center
 caption:
