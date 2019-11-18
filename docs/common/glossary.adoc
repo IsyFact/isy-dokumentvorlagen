@@ -10,7 +10,7 @@ Eine kurze, knappe und präzise
 Definition des Glossareintrags.
 
 // Es gibt zwei technische Einschränkungen bei der id
-   1  Die id darf keine Umlaute einthalten!
+   1  Die id darf keine Umlaute enthalten!
    2  Die id darf keine Leerzeichen enthalten, diese sind mit Minuszeichen zu ersetzen.
 
 // Erster Block "Abbildungsbeschreibungen"
