@@ -102,8 +102,12 @@
   Nutzungsvorgaben Logging +
   20_Bausteine/Logging/Nutzungsvorgaben_Logging.pdf
 
+- [[[KonzeptPolling]]] +
+  Konzept Polling +
+  20_Bausteine/Polling/Konzept_Polling.pdf
+
 - [[[NutzungsvorgabenPolling]]] +
-  Konzept Protokollierung +
+  Nutzungsvorgaben Polling +
   20_Bausteine/Polling/Nutzungsvorgaben_Polling.pdf
 
 - [[[KonzeptSicherheit]]] +
