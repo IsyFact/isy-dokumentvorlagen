@@ -5,7 +5,7 @@
 # Funktionsweise:
 # - common/bibliography.adoc enthält alle Literaturrefenzen in der Form [[[BibRef]]]. Baue eine Liste aller Referenzen (1)
 # - Suche in adoc-Dateien aller Dokumente (2) nach Referenzen der Form <<BibRef>> (3)
-# - Extrahiere für jede gefundene Referenz den Eintrag aus bibliography.adoc und übernehme in indiviuelle
+# - Extrahiere für jede gefundene Referenz den Eintrag aus bibliography.adoc und übernehme in individuelle
 #   bibliography.adoc des Dokuments (4)
 
 # (1)
@@ -15,7 +15,7 @@ allBibRefs=($(gawk 'match($0, /\[\[\[(.+)\]\]\]/, m) { print m[1]}' common/bibli
 findRefs() {
     for ref in $@
     do
-        cat $dir/docinfo.adoc $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc | gawk -v foundref=$ref 'match($0, /<<([a-zA-Z0-9]+)>>/, m) && m[1] == foundref { print m[1]; }' RS=" " | sort -u
+        cat $dir/docinfo.adoc $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc $dir/glossary.adoc | gawk -v foundref=$ref 'match($0, /<<([a-zA-Z0-9]+)>>/, m) && m[1] == foundref { print m[1]; }' RS=" " | sort -u
     done
 }
 
