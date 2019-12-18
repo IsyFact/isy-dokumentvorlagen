@@ -6,7 +6,7 @@
 // erlaubt: IsyFactEinstieg
 // nicht erlaubt: IsyFact-Einstieg
 // Referenzen werden in den folgenden Dokumenten gefunden und zu Literaturverzeichnissen verarbeitet:
-// docinfo.adoc, thisdoc.adoc, inhalt.adoc, anhaenge.adoc
+// thisdoc.adoc, inhalt.adoc, anhaenge.adoc
 // Zwischen den einzelnen Einträgen dürfen nur Zeilenumbrüche ohne Leerzeichen stehen.
 ////
 
