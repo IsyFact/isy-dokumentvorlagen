@@ -167,9 +167,8 @@ do
     #done
     buildDocumentGlossary ${foundTerms[@]}
     Counter=0
-    # maximale Tiefe für verschachtelte Verweise ist 9 - (countermax in diesem Falle Countermax=10 setzen)
-    # einmal durchgehen ist also 2
-    CounterMax=9
+    # maximale Tiefe für verschachtelte Verweise ist 9 - einmal durchgehen ist 1
+    CounterMax=1
     ActTerms=($foundTerms)
     OldLength=${#ActTerms[@]}
     while [ $Counter -lt $CounterMax ]; do
@@ -180,7 +179,8 @@ do
       NewLength=${#ActTerms[@]}
 
       #echo -e $Counter
-      echo "alt>"  $OldLength " neu> " $NewLength " ( Lauf: " $Counter ")"
+      #echo "alt>"  $OldLength " neu> " $NewLength " ( Lauf: " $Counter ")"
+      echo  $NewLength " Glossareinträge gefunden"
       #for ifrt in ${ActTerms[@]}; do
       #  echo " Verweis         : " $ifrt
       #done
