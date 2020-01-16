@@ -42,10 +42,6 @@
   IsyFact–Tutorial +
   00_Allgemein/IsyFact-Tutorial.pdf
 
-- [[[IsyFactVersionierung]]] +
-  IsyFact-Versionierung +
-  00_Allgemein/IsyFact-Versionierung.pdf
-
 - [[[ProduktKatalog]]] +
   IsyFact-Produktkatalog +
   00_Allgemein/Produktkatalog_IsyFact.xlsx
@@ -170,6 +166,10 @@
   Java-Programmierkonventionen +
   40_Methodik/30_Implementierung/Java-Programmierkonventionen.pdf
 
+- [[[IsyFactVersionierung]]] +
+  IsyFact-Versionierung +
+  40_Methodik/30_Implementierung/IsyFact-Versionierung.pdf
+
 - [[[EinrichtungEntwicklungsumgebung]]] +
   Einrichtung einer Entwicklungsumgebung – Boilerplate Code und Formatierung +
   50_Werkzeuge/Einrichtung_Entwicklungsumgebung.pdf
@@ -177,6 +177,10 @@
 - [[[HandbuchFuerTechnischeAutoren]]] +
   Handbuch für technische Autoren +
   50_Werkzeuge/Handbuch_fuer_technische_Autoren.pdf
+
+- [[[MavenPluginVersionierungskontrolle]]] +
+  Maven-Plugin zur Versionierungskontrolle +
+  50_Werkzeuge/Maven_Plugin_zur_Versionierungskontrolle.pdf
 
 - [[[NutzungsvorgabenBenutzerverwaltung]]] +
   Nutzungsvorgaben Benutzerverwaltung +
