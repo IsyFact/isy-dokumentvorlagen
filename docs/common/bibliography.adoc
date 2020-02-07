@@ -359,4 +359,3 @@
 - [[[TomcatNutzungskonzept]]] +
   Nutzungskonzept Apache Tomcat +
   30_Plattform/Nutzungskonzept_Apache_Tomcat_8.pdf
-  30_Plattform/Nutzungskonzept_Apache_Tomcat_8.pdf
