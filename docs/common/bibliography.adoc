@@ -356,6 +356,10 @@
   Styleguide +
   20_Bausteine/Styleguide/Styleguide.pdf
 
+- [[[Nutzungskonzept_Styleguide]]] +
+  Nutzungskonzept Styleguide +
+  20_Bausteine/Styleguide/Nutzungskonzept_Styleguide.pdf
+
 - [[[SystemdokumentationServiceGateway]]] +
   Systemdokumentation Service-Gateway +
   20_Bausteine/Service-Gateway/Systemdokumentation_Service-Gateway.pdf
