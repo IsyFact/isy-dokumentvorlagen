@@ -130,9 +130,21 @@
   Nutzungsvorgaben Task Scheduling +
   20_Bausteine/Task_Scheduling/Nutzungsvorgaben_Task_Scheduling.pdf
 
-- [[[KonzeptUeberwachungKonfiguration]]] +
-  Konzept Überwachung und Konfiguration +
-  20_Bausteine/Ueberwachung_Konfiguration/Konzept_Ueberwachung_Konfiguration.pdf
+- [[[NutzungsvorgabenUeberwachung]]] +
+  Konzept Überwachung +
+  20_Bausteine/Ueberwachung/Nutzungsvorgaben_Ueberwachung.pdf
+
+- [[[KonzeptUeberwachung]]] +
+  Konzept Überwachung +
+  20_Bausteine/Ueberwachung/Konzept_Ueberwachung.pdf
+
+- [[[NutzungsvorgabenKonfiguration]]] +
+  Konzept Konfiguration +
+  20_Bausteine/Konfiguration/Nutzungsvorgaben_Konfiguration.pdf
+
+- [[[KonzeptKonfiguration]]] +
+  Konzept Konfiguration +
+  20_Bausteine/Konfiguration/Konzept_Konfiguration.pdf
 
 - [[[NutzungsvorgabenIsyUtil]]] +
   Nutzungskonzept Isy-Util +
