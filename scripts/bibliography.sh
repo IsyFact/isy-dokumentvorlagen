@@ -23,7 +23,7 @@ findRefs() {
       rm $dir/grabbedRefs.txt
     fi
     touch $dir/grabbedRefs.txt
-    cat $dir/docinfo.adoc $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc > $dir/RefSrc-temp.adoc
+    cat $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc > $dir/RefSrc-temp.adoc
 
     for Ref2 in $@
     do
