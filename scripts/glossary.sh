@@ -28,15 +28,15 @@ findTerms() {
       rm $dir/grabbedTerms.txt
     fi
     touch $dir/grabbedTerms.txt
-    cat $dir/docinfo.adoc $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc > $dir/TermSrc-temp.adoc
+    cat  $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc > $dir/TermSrc-temp.adoc
     for term in $@
     do
         cat $dir/TermSrc-temp.adoc | gawk '{while(match($0,/<<([^<>]+)>>/)) {print substr($0,RSTART+2,RLENGTH-4); $0=substr($0,RSTART+RLENGTH)}}' | grep $term  | grep -v 'image-glossar-' | sort -u >> $dir/grabbedTerms.txt
-        # cat $dir/docinfo.adoc $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc | gawk -v foundref=$term 'match($0, /<<([^<>]+)>>/, m) && m[1] == foundref { print m[1]; }' | grep 'glossar-' | grep -v 'image-glossar-' | sort -u
+        # cat $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc | gawk -v foundref=$term 'match($0, /<<([^<>]+)>>/, m) && m[1] == foundref { print m[1]; }' | grep 'glossar-' | grep -v 'image-glossar-' | sort -u
     done
 
     touch $dir/grabbedTerms-temp.txt
-    cat $dir/grabbedTerms.txt | sort -u > $dir/grabbedTerms-temp.txt
+    cat $dir/grabbedTerms.txt | cut -d"," -f1 | sort -u > $dir/grabbedTerms-temp.txt
     cat $dir/grabbedTerms-temp.txt > $dir/grabbedTerms.txt
 
     cat $dir/grabbedTerms.txt
@@ -56,34 +56,35 @@ findTerms() {
 # (3b)
 findTermswithGlos() {
 
-    if [ -f $dir/grabbedTerms.txt ];
+    if [ -f $dir/grabbedTermsWG.txt ];
     then
-      rm $dir/grabbedTerms.txt
+      rm $dir/grabbedTermsWG.txt
     fi
-    touch $dir/grabbedTerms.txt
-    cat $dir/docinfo.adoc $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc $dir/anhaenge.adoc $dir/glossary.adoc > $dir/TermSrc-temp.adoc
+    touch $dir/grabbedTermsWG.txt
+    cat $dir/thisdoc.adoc $dir/inhalt.adoc $dir/anhaenge.adoc $dir/anhaenge.adoc $dir/glossary.adoc > $dir/TermSrcWG-temp.adoc
 
 
     for term in $@
     do
-        cat $dir/TermSrc-temp.adoc | gawk '{while(match($0,/<<([^<>]+)>>/)) {print substr($0,RSTART+2,RLENGTH-4); $0=substr($0,RSTART+RLENGTH)}}' | grep $term  | grep -v 'image-glossar-' | sort -u >> $dir/grabbedTerms.txt
+        cat $dir/TermSrcWG-temp.adoc | gawk '{while(match($0,/<<([^<>]+)>>/)) {print substr($0,RSTART+2,RLENGTH-4); $0=substr($0,RSTART+RLENGTH)}}' | grep $term  | grep -v 'image-glossar-' | sort -u >> $dir/grabbedTermsWG.txt
     done
 
-    touch $dir/grabbedTerms-temp.txt
-    cat $dir/grabbedTerms.txt | sort -u > $dir/grabbedTerms-temp.txt
-    cat $dir/grabbedTerms-temp.txt > $dir/grabbedTerms.txt
+    touch $dir/grabbedTermsWG-temp.txt
+    cat $dir/grabbedTermsWG.txt | cut -d"," -f1 | sort -u > $dir/grabbedTermsWG-temp.txt
+    cat $dir/grabbedTermsWG-temp.txt > $dir/grabbedTermsWG.txt
 
-    cat $dir/grabbedTerms.txt
+    cat $dir/grabbedTermsWG.txt
 
-    if [ -f $dir/grabbedTerms-temp.txt ];
+    if [ -f $dir/grabbedTermsWG-temp.txt ];
     then
-      rm $dir/grabbedTerms-temp.txt
+       rm $dir/grabbedTermsWG-temp.txt
     fi
-    if [ -f $dir/grabbedTerms.txt ];
+    if [ -f $dir/grabbedTermsWG.txt ];
     then
-      rm $dir/grabbedTerms.txt
+      rm $dir/grabbedTermsWG.txt
     fi
-    rm $dir/TermSrc-temp.adoc
+
+    rm $dir/TermSrcWG-temp.adoc
 }
 
 # (4)
@@ -167,9 +168,8 @@ do
     #done
     buildDocumentGlossary ${foundTerms[@]}
     Counter=0
-    # maximale Tiefe für verschachtelte Verweise ist 9 - (countermax in diesem Falle Countermax=10 setzen)
-    # einmal durchgehen ist also 2
-    CounterMax=9
+    # maximale Tiefe für verschachtelte Verweise ist 9 - einmal durchgehen ist 1
+    CounterMax=1
     ActTerms=($foundTerms)
     OldLength=${#ActTerms[@]}
     while [ $Counter -lt $CounterMax ]; do
@@ -180,7 +180,8 @@ do
       NewLength=${#ActTerms[@]}
 
       #echo -e $Counter
-      echo "alt>"  $OldLength " neu> " $NewLength " ( Lauf: " $Counter ")"
+      #echo "alt>"  $OldLength " neu> " $NewLength " ( Lauf: " $Counter ")"
+      echo  $NewLength " Glossareinträge gefunden"
       #for ifrt in ${ActTerms[@]}; do
       #  echo " Verweis         : " $ifrt
       #done
