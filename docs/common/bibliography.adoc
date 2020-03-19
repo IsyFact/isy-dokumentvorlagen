@@ -170,6 +170,10 @@
   Nutzungsvorgaben JSF +
   20_Bausteine/JSF/Nutzungsvorgaben_JSF.pdf
 
+- [[[NutzungsvorgabenRedis]]] +
+  Nutzungsvorgaben Redis  +
+  30_Plattform/Nutzungsvorgaben_Redis.pdf
+
 - [[[AnleitungDatenflussdiagramme]]] +
   Anleitung zur Erstellung und zum Lesen von Datenflussdiagrammen +
   40_Methodik/10_Systemspezifikation/Anleitung_zu_Datenflussdiagrammen.dotx
