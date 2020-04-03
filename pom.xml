@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>isy-dokumentvorlagen</artifactId>
-    <version>1.8.0-SNAPSHOT</version>
+    <version>1.8.0</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
