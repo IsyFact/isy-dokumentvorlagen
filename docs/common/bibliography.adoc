@@ -115,8 +115,12 @@
   20_Bausteine/Sicherheitskomponente/Nutzungsvorgaben_Sicherheit.pdf
 
 - [[[KonzeptUmgangMitSonderzeichen]]] +
-  Transkriptions-Regeln +
+  Konzept Umgang mit Sonderzeichen +
   20_Bausteine/Sonderzeichen/Konzept_Umgang_mit_Sonderzeichen.pdf
+
+- [[[NutzungsvorgabenUmgangMitSonderzeichen]]] +
+  Nutzungsvorgaben Umgang mit Sonderzeichen +
+  20_Bausteine/Sonderzeichen/Nutzungsvorgaben_Umgang_mit_Sonderzeichen.pdf
 
 - [[[SLMapping]]] +
   Mapping-Tabelle für die Transformation von String.Latin-Zeichen +
