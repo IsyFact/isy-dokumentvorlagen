@@ -50,4 +50,4 @@ Internet: {homepage}
 |Dokumenten-ID:| {doctitle}
 |====
 
-Informationen zu Änderungen an diesem Dokument finden sich in der Datei <<Aenderungshistorie>>.
+Informationen zu Änderungen an diesem Dokument finden sich im <<changelog,Changelog>>.
