@@ -43,3 +43,4 @@ deploy_staging:
    - tags
   only:
    - master
+   - development/1.8.x
