@@ -32,7 +32,7 @@ deploy_release:
   only:
    - tags
 
-deploy_staging:
+deploy_snapshot:
   <<: *vorlage
   stage: deploystage
   script:
