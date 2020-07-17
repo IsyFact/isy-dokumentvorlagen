@@ -22,13 +22,18 @@ title_page:
   background_image: image:front_cover.png[]
   align: left
   font_style: bold
+  subtitle:
+    font_color: [6, 73, 65]
+    font_size: 16
+    text_transform: uppercase
   title:
     font_size: 26
     top: 27%
     font_color: [6, 73, 65]
   revision:
+    margin_top: 55
     font_size: 14
-    font_color: [6, 73, 65]
+    font_color: [255, 255, 255]
 toc:
   h1_font_style: bold
   h2_font_style: bold

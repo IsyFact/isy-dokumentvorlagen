@@ -1,0 +1,25 @@
+////
+// @attribute  doctitle {String}  Titel des Dokuments
+// @attribute  [document-type] {String} Optionaler Dokumententyp
+//
+// Titelzeile eines Dokuments, als Untertitel wird der Dokumententyp (z.B. Detailkonzept) verwendet.
+// Bei PDF wird die Untertitelfunktion von Asciidoc verwendet, bei HTML funktioniert diese nicht.
+////
+
+ifdef::backend-pdf[]
+ifdef::document-type[]
+:title: {doctitle}: {document-type}
+endif::[]
+ifndef::document-type[]
+:title: {doctitle}: {nbsp}
+endif::[]
+endif::[]
+
+ifdef::backend-html5[]
+ifdef::document-type[]
+[.subtitle]
+{document-type}
+endif::[]
+ifndef::document-type[]
+endif::[]
+endif::[]
