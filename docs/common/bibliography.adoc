@@ -70,10 +70,6 @@
   Detailkonzept Komponente Web-GUI +
   10_Blaupausen/technische_Architektur/Detailkonzept_Komponente_Web_GUI.pdf
 
-- [[[GrundlagenInterneServicekommunikation]]] +
-  Grundlagen der Servicekommunikation innerhalb der Plattform +
-  10_Blaupausen/Integrationsplattform/Grundlagen_interne_Servicekommunikation.pdf
-
 - [[[KonzeptDatumZeit]]] +
   Konzept Datum & Zeit +
   20_Bausteine/Datum_Zeit/Konzept_Datum_Zeit.pdf
@@ -101,6 +97,14 @@
 - [[[NutzungsvorgabenLogging]]] +
   Nutzungsvorgaben Logging +
   20_Bausteine/Logging/Nutzungsvorgaben_Logging.pdf
+
+- [[[KonzeptHttpInvoker]]] +
+  Konzept Logging +
+  20_Bausteine/HTTP_Invoker/Konzept_HTTP_Invoker.pdf
+
+- [[[NutzungsvorgabenHttpInvoker]]] +
+  Nutzungsvorgaben Logging +
+  20_Bausteine/HTTP_Invoker/Nutzungsvorgaben_HTTP_Invoker.pdf
 
 - [[[KonzeptPolling]]] +
   Konzept Polling +
