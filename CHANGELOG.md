@@ -1,3 +1,5 @@
+# 2.2.0
+
 # 2.1.0
 - `IFS-335`: Template und Styles für Dokumententitel mit Untertitel hinzugefügt
 - `IFS-352`: Link zum automatisch erstellten Changelog eingefügt
