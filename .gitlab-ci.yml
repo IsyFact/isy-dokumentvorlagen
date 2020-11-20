@@ -16,6 +16,7 @@ cache:
 .template: &vorlage
   tags:
    - zssi
+   - docker
   retry: 1
 
 package:
