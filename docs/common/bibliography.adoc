@@ -377,10 +377,6 @@
   Nutzungskonzept HTTP Server +
   30_Plattform/Nutzungskonzept_Apache_HTTP_Server.pdf
 
-- [[[NutzungsvorgabenLogserver]]] +
-  Nutzungsvorgaben Logserver +
-  Link wird ergänzt, wenn Dokument fertiggestellt wurde
-
 - [[[ProtokollierungKonzept]]] +
   Konzept Protokollierung +
   20_Bausteine/Protokollierung_Protokollrecherche/Konzept_Protokollierung.pdf
