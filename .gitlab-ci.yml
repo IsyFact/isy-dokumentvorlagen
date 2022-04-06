@@ -1,48 +1,17 @@
-variables:
-  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true"
-  MAVEN_CLI_OPTS: "-s settings.xml --batch-mode --errors --fail-at-end"
+include:
+  - project: 'IsyFact/isy-gitlabci-templates'
+    file: '/maven/.gitlab-ci-maven.yml'
 
-image: $BUILDIMAGE
-stages:
-  - packagestage
-  - deploystage
-cache:
-  paths:
-    - .m2/repository
-  key: "isyfactstandards"
-
-#Vorlagen
-
-.template: &vorlage
-  tags:
-   - zssi
-   - docker
-  retry: 1
+build:
+  extends: .maven-build
 
 package:
-  <<: *vorlage
-  stage: packagestage
-  script:
-   - mvn -Dmaven.test.skip=true $MAVEN_CLI_OPTS package
+  extends: .maven-package
 
-deploy_release:
-  <<: *vorlage
-  stage: deploystage
-  script:
-   - mvn -Prelease -Dmaven.test.skip=true -Dmaven.install.skip=true $MAVEN_CLI_OPTS deploy
-  rules:
-   - if: '$CI_COMMIT_TAG'
-     when: on_success
+deploy:
+  extends: .maven-deploy
 
-deploy_snapshot:
-  <<: *vorlage
-  stage: deploystage
-  script:
-   - SNAPSHOT=true
-   - '[[ $(mvn --non-recursive -Dexpression=project.version $MAVEN_CLI_OPTS help:evaluate | grep -v "\[.*") == *-SNAPSHOT ]] || SNAPSHOT=false'
-   - '[[ $SNAPSHOT == true ]] && mvn -Dmaven.test.skip=true -Dmaven.install.skip=true $MAVEN_CLI_OPTS deploy || echo "Keine SNAPSHOT-Version - deploy wird nur bei Tags durchgefuehrt"'
-  rules:
-   - if: '$CI_COMMIT_TAG'
-     when: never
-   - if : '$CI_COMMIT_BRANCH == "master" || "$CI_COMMIT_BRANCH" =~ /^development\/.+/'
-     when: on_success
+stages:
+  - build
+  - package
+  - deploy
