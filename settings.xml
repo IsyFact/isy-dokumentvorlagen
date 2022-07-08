@@ -89,6 +89,14 @@
             </repositories>
             <pluginRepositories>
                 <pluginRepository>
+                    <id>repository-local-release</id>
+                    <name>local-releases</name>
+                    <url>${env.REPOSITORY_LOCAL_RELEASE}</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                </pluginRepository>
+                <pluginRepository>
                     <id>repository-maven-central</id>
                     <name>maven-central</name>
                     <url>${env.REPOSITORY_MAVENCENTRAL}</url>
